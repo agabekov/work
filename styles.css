@@ -1,0 +1,514 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-main: 'Courier Prime', monospace;
+    /* Light theme (Usuki) */
+    --color-text: #000;
+    --color-background: #F0F0E8;
+    --color-link: #000;
+    --color-link-hover: #666;
+    /* Dark theme (Sumi) */
+    --color-text-dark: #E5E5DF;
+    --color-background-dark: #1A1A1A;
+    --color-link-dark: #A8D8B9;
+    --color-link-hover-dark: #83AD94;
+    --color-accent-dark: #665F4D;
+    /* Highlight colors */
+    --highlight-color: rgba(167, 139, 250, 0.2);
+    --highlight-color-dark: rgba(167, 139, 250, 0.4);
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 16px;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-dark);
+}
+
+.dark-theme a {
+    color: var(--color-link-dark);
+    border-bottom: 1px solid var(--color-link-dark);
+}
+
+.dark-theme a:hover {
+    color: var(--color-link-hover-dark);
+}
+
+.dark-theme blockquote {
+    border-left: 2px solid var(--color-text-dark);
+}
+
+.dark-theme .client-list li::before,
+.dark-theme .client-item::before,
+.dark-theme h2::after {
+    color: var(--color-text-dark);
+}
+
+.dark-theme .typed-text {
+    border-right: 2px solid var(--color-text-dark);
+}
+
+/* Theme toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: 1px solid currentColor;
+    padding: 8px 12px;
+    font-family: var(--font-main);
+    cursor: pointer;
+    z-index: 10;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    opacity: 0.8;
+}
+
+.dark-theme .theme-toggle {
+    border-color: var(--color-text-dark);
+    color: var(--color-text-dark);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: "_";
+    animation: blink 1s infinite;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+#title {
+    font-style: italic;
+    margin-bottom: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    border-bottom: 1px solid #000;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-link-hover);
+}
+
+/* Header & Navigation */
+header {
+    margin-bottom: 3rem;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.profile-image-container {
+    flex-shrink: 0;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--color-text);
+    transition: border-color 0.3s ease;
+}
+
+.dark-theme .profile-image {
+    border-color: var(--color-text-dark);
+}
+
+.header-text {
+    flex-grow: 1;
+}
+
+nav {
+    margin-bottom: 6rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+nav a {
+    font-weight: 700;
+}
+
+/* Sections */
+section {
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content {
+    opacity: 0;
+    margin-top: 0.5rem;
+    transition: opacity 0.3s ease;
+}
+
+/* Typewriter effect for section content */
+.typed-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: normal;
+    max-width: 100%;
+    border-right: 2px solid #000;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+.content p, .content h3, .content li, .content blockquote p, .content cite {
+    position: relative;
+}
+
+.content p::after, .content h3::after, .content li::after, .content blockquote p::after, .content cite::after {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: currentColor;
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: blink 1s infinite;
+    opacity: 0;
+}
+
+.content .typing::after {
+    opacity: 1;
+}
+
+.content .no-cursor::after {
+    display: none;
+}
+
+.content p:last-of-type::after, .content h3:last-of-type::after, .content li:last-of-type::after, 
+.content blockquote:last-of-type p::after, .content blockquote:last-of-type cite::after {
+    opacity: 0;
+}
+
+/* Service section */
+.service {
+    margin-bottom: 1.25rem;
+}
+
+.service:last-child {
+    margin-bottom: 0;
+}
+
+/* Work Experience */
+.work-entry {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .work-entry {
+    border-bottom: 1px solid rgba(229, 229, 223, 0.1);
+}
+
+.work-entry:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.work-section-title {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.work-section-title:first-of-type {
+    margin-top: 0;
+}
+
+.work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.work-period {
+    font-style: italic;
+    opacity: 0.8;
+    white-space: nowrap;
+    margin-right: 1rem;
+}
+
+.company-name {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: right;
+    flex: 1;
+}
+
+.position {
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Client list */
+.client-list {
+    list-style: none;
+    margin-left: 1rem;
+}
+
+.client-list li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.client-list li::before {
+    content: "_";
+    padding-right: 0.5rem;
+}
+
+/* Client Grid */
+.client-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.client-item {
+    flex: 1 0 100%;
+    padding: 0.25rem 0;
+    position: relative;
+}
+
+/* Media queries for responsive client grid */
+@media (min-width: 576px) {
+    .client-item {
+        flex: 1 0 calc(50% - 0.5rem);
+        padding: 0.5rem 0;
+    }
+    
+    .client-grid {
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .client-item {
+        flex: 1 0 calc(33.333% - 1rem);
+    }
+}
+
+/* Removing all testimonial related styles */
+.testimonial-container,
+.testimonial-item,
+.testimonial-item.active,
+.testimonial-content,
+.testimonial-controls,
+.testimonial-button,
+#testimonial-debug {
+    display: none;
+}
+
+section#testimonials {
+    display: none;
+}
+
+/* Animations */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #000 }
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .container {
+        padding: 3rem 1.5rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .testimonial-item {
+        width: 90%;
+    }
+    
+    .testimonial-item.left,
+    .testimonial-item.right {
+        display: none;
+    }
+}
+
+/* Elegant highlight */
+.highlight {
+    box-shadow: inset 0 -0.5em 0 var(--highlight-color);
+    border-radius: 0.1em;
+    padding: 0 0.2em;
+    transition: all 0.3s ease;
+}
+
+.dark-theme .highlight {
+    box-shadow: inset 0 -0.5em 0 var(--highlight-color-dark);
+}
+
+/* Rest of your CSS below */
+section#testimonials .content {
+    opacity: 1 !important;
+}
+
+/* Testimonial Controls */
+.testimonial-controls {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.testimonial-button {
+    background: transparent;
+    border: 1px solid currentColor;
+    padding: 8px 15px;
+    font-family: var(--font-main);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.testimonial-button:hover {
+    opacity: 0.7;
+}
+
+.dark-theme .testimonial-button {
+    color: var(--color-text-dark);
+}
+
+/* Contact section */
+.social {
+    margin-top: 0.75rem;
+}
+
+.social a {
+    margin-right: 1.5rem;
+}
+
+/* About Section Image */
+.about-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.about-image-container {
+    align-self: center;
+    margin-bottom: 1rem;
+}
+
+.about-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.dark-theme .about-image {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+    .about-layout {
+        flex-direction: row;
+    }
+    
+    .about-image-container {
+        flex: 0 0 40%;
+        margin-right: 2rem;
+        margin-bottom: 0;
+    }
+    
+    .about-text {
+        flex: 1;
+    }
+} 

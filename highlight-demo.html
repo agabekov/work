@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlight Style - Option 4</title>
+    <style>
+        :root {
+            --highlight-color: rgba(167, 139, 250, 0.2);
+            --text-color: #1f2937;
+            --bg-color: #f9fafb;
+            --border-color: #e5e7eb;
+        }
+        
+        .dark-theme {
+            --highlight-color: rgba(167, 139, 250, 0.4);
+            --text-color: #f3f4f6;
+            --bg-color: #111827;
+            --border-color: #374151;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        /* Elegant box highlight */
+        .highlight {
+            box-shadow: inset 0 -0.5em 0 var(--highlight-color);
+            border-radius: 0.1em;
+            padding: 0 0.2em;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .theme-toggle:hover {
+            background: #7c3aed;
+        }
+        
+        .container {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            margin-top: 40px;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    <h1>Elegant Box Highlight</h1>
+    
+    <p>
+        Я пишу тексты. Пишу уже 10 лет. И делаю это довольно хорошо.
+    </p>
+    
+    <p>
+        Лучше всего я умею две вещи.
+    </p>
+    
+    <p>
+        Писать с заботой — чтобы люди чувствовали любовь и уважение к себе, чтобы они не думали, что они глупые, когда пользуются вашими продуктами, чтобы чувствовали, что о них переживают, и что им хотят помочь.
+    </p>
+    
+    <p>
+        Могу помочь, когда наступают сложные моменты — когда нужно сообщить клиентам непростую новость или объяснить изменения, которые могут вызвать беспокойство. <span class="highlight">Я тщательно подбираю каждое слово, чтобы сохранить доверие, которое вы строили годами.</span> Я помогаю вашим клиентам понять, что даже в непростых ситуациях вы остаётесь на их стороне, цените их и стремитесь сделать всё возможное, чтобы ваши отношения продолжались и крепли, несмотря на временные трудности.
+    </p>
+    
+    <p>
+        И формулировать смыслы — превращать сложные идеи в ясные сообщения, которые находят отклик. Я помогаю компаниям выражать их ценности так, чтобы каждый понял суть без лишних слов. Создаю тексты, где за каждым предложением стоит цель и намерение, где нет места пустым фразам. <span class="highlight">Когда люди читают мои тексты, они видят картину целиком, понимают «почему» за каждым «что» и чувствуют связь с брендом на более глубоком уровне.</span>
+    </p>
+    
+    <p>
+        Выступление перед коллегами, презентация для клиентов, текст на сайте или в приложении, содержание буклета, личное письмо, ответы службы поддержки, шаблоны вакансий или пресс-релиз. В общем-то, я могу написать практически любой текст для вашей компании.
+    </p>
+    
+    <div class="container">
+        <h3>About This Highlight</h3>
+        <p>The "Elegant Box Highlight" creates a subtle but effective emphasis by placing a soft colored shadow behind the text. This style works well in both light and dark themes, providing good readability while attracting attention to important points.</p>
+        <p>Use the toggle button in the top right to see how it looks in both themes.</p>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
+</body>
+</html> 
