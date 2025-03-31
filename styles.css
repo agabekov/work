@@ -6,7 +6,7 @@
 }
 
 :root {
-    --font-main: 'Courier Prime', monospace;
+    --font-main: 'JetBrains Mono', monospace;
     /* Light theme (Usuki) */
     --color-text: #000;
     --color-background: #F0F0E8;
@@ -63,7 +63,7 @@ body.dark-theme {
 
 /* Theme toggle */
 .theme-toggle {
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 20px;
     background: none;
@@ -89,8 +89,10 @@ body.dark-theme {
     max-width: 800px;
     margin: 0 auto;
     padding: 4rem 2rem;
+    padding-top: 5rem; /* Extra padding at top to account for fixed button */
     width: 100%;
     overflow-x: hidden;
+    position: relative;
 }
 
 /* Typography */
@@ -421,6 +423,22 @@ section#testimonials {
     .testimonial-item.right {
         display: none;
     }
+    
+    .work-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .company-name {
+        text-align: left;
+        font-size: 0.9rem;
+        margin-top: 0.2rem;
+        width: 100%;
+    }
+    
+    .work-period {
+        font-size: 0.9rem;
+    }
 }
 
 /* Elegant highlight */
@@ -470,7 +488,7 @@ section#testimonials .content {
 }
 
 .social a {
-    margin-right: 1.5rem;
+    margin-right: 1rem;
 }
 
 /* About Section Image */
@@ -510,5 +528,21 @@ section#testimonials .content {
     
     .about-text {
         flex: 1;
+    }
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.education-item {
+    padding: 0.5rem 0;
+}
+
+@media (min-width: 576px) {
+    .education-grid {
+        grid-template-columns: 1fr 1fr;
     }
 } 
