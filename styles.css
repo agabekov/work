@@ -399,7 +399,8 @@ section#testimonials {
 /* Media queries */
 @media (max-width: 768px) {
     .container {
-        padding: 3rem 1.5rem;
+        padding: 2rem 1rem;
+        padding-top: 4rem;
     }
     
     nav ul {
@@ -438,6 +439,25 @@ section#testimonials {
     
     .work-period {
         font-size: 0.9rem;
+    }
+
+    /* Disable all cursor animations on mobile */
+    h2::after {
+        content: none;
+    }
+
+    .content p::after, 
+    .content h3::after, 
+    .content li::after, 
+    .content blockquote p::after, 
+    .content cite::after,
+    .content .typing::after {
+        display: none;
+    }
+
+    .typed-text {
+        border-right: none;
+        animation: none;
     }
 }
 
