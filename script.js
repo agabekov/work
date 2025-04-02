@@ -69,7 +69,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Start typewriter effect when section is visible
                 const content = entry.target.querySelector('.content');
                 if (content && !content.classList.contains('typed')) {
-                    typewriterEffect(content);
+                    // Only apply typewriter effect on desktop (viewport width > 768px)
+                    if (window.innerWidth > 768) {
+                        typewriterEffect(content);
+                    } else {
+                        // On mobile, just show the content immediately
+                        content.style.opacity = '1';
+                        const textElements = content.querySelectorAll('p, h3, h4, li, blockquote p, cite, .client-item, .education-item, .work-period, .company-name, .social a');
+                        textElements.forEach(element => {
+                            element.style.opacity = '1';
+                        });
+                    }
                     content.classList.add('typed');
                 }
             }
