@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         contentElement.style.opacity = '1';
         
         // Get all direct text containers within the content
-        const textElements = contentElement.querySelectorAll('p, h3, li, blockquote p, cite');
+        const textElements = contentElement.querySelectorAll('p, h3, h4, li, blockquote p, cite, .client-item, .education-item, .work-period, .company-name, .social a');
         
         // Save original content and prepare elements
         const originalContent = [];
@@ -150,6 +150,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     inHighlightSpan = false;
                     html += '</span>';
                     cursor += 7; // Length of '</span>'
+                }
+                // Handle HTML entities like &nbsp;
+                else if (content.substring(cursor).startsWith('&') && content.substring(cursor).includes(';')) {
+                    const entityEnd = content.indexOf(';', cursor) + 1;
+                    html += content.substring(cursor, entityEnd);
+                    cursor = entityEnd;
                 }
                 // Other HTML tags
                 else if (content.substring(cursor).startsWith('<')) {
