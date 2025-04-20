@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 element.innerHTML = html;
-                setTimeout(typeNextChar, 22); // typing speed (balanced between 15ms and 30ms)
+                setTimeout(typeNextChar, 15); // typing speed (reduced from 22ms for faster effect)
             } else {
                 // When typing is complete, remove the typing class to hide the cursor
                 element.classList.remove('typing');
