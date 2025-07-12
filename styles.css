@@ -52,34 +52,38 @@ body.dark-theme {
 }
 
 .dark-theme .client-list li::before,
-.dark-theme .client-item::before,
-.dark-theme h2::after {
+.dark-theme .client-item::before {
     color: var(--color-text-dark);
 }
 
-.dark-theme .typed-text {
-    border-right: 2px solid var(--color-text-dark);
-}
 
-/* Theme toggle */
-.theme-toggle {
+/* Header controls */
+.header-controls {
     position: absolute;
     top: 20px;
     right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.language-toggle,
+.theme-toggle {
     background: none;
     border: 1px solid currentColor;
     padding: 8px 12px;
     font-family: var(--font-main);
     cursor: pointer;
-    z-index: 10;
     font-size: 14px;
     transition: all 0.3s ease;
 }
 
+.language-toggle:hover,
 .theme-toggle:hover {
     opacity: 0.8;
 }
 
+.dark-theme .language-toggle,
 .dark-theme .theme-toggle {
     border-color: var(--color-text-dark);
     color: var(--color-text-dark);
@@ -114,10 +118,6 @@ h2 {
     display: inline-block;
 }
 
-h2::after {
-    content: "_";
-    animation: blink 1s infinite;
-}
 
 h3 {
     font-size: 1.25rem;
@@ -213,44 +213,6 @@ section.visible {
     transition: opacity 0.3s ease;
 }
 
-/* Typewriter effect for section content */
-.typed-text {
-    display: inline-block;
-    overflow: hidden;
-    white-space: normal;
-    max-width: 100%;
-    border-right: 2px solid #000;
-    animation: blink-caret 0.75s step-end infinite;
-}
-
-.content p, .content h3, .content li, .content blockquote p, .content cite {
-    position: relative;
-}
-
-.content p::after, .content h3::after, .content li::after, .content blockquote p::after, .content cite::after {
-    content: '';
-    display: inline-block;
-    width: 2px;
-    height: 1em;
-    background-color: currentColor;
-    margin-left: 2px;
-    vertical-align: text-bottom;
-    animation: blink 1s infinite;
-    opacity: 0;
-}
-
-.content .typing::after {
-    opacity: 1;
-}
-
-.content .no-cursor::after {
-    display: none;
-}
-
-.content p:last-of-type::after, .content h3:last-of-type::after, .content li:last-of-type::after, 
-.content blockquote:last-of-type p::after, .content blockquote:last-of-type cite::after {
-    opacity: 0;
-}
 
 /* Service section */
 .service {
@@ -381,20 +343,6 @@ section#testimonials {
 }
 
 /* Animations */
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: #000 }
-}
 
 /* Media queries */
 @media (max-width: 768px) {
@@ -441,24 +389,6 @@ section#testimonials {
         font-size: 0.9rem;
     }
 
-    /* Disable all cursor animations on mobile */
-    h2::after {
-        content: none;
-    }
-
-    .content p::after, 
-    .content h3::after, 
-    .content li::after, 
-    .content blockquote p::after, 
-    .content cite::after,
-    .content .typing::after {
-        display: none;
-    }
-
-    .typed-text {
-        border-right: none;
-        animation: none;
-    }
 }
 
 /* Elegant highlight */
