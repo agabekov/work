@@ -24,7 +24,7 @@ const content = {
                 ]
             },
             services: {
-                title: 'Что умею',
+                title: 'Чем занимаюсь',
                 content: [
                     {
                         title: 'Маркетинговый копирайтинг',
@@ -42,11 +42,11 @@ const content = {
                 ]
             },
             clients: {
-                title: 'С кем работал',
+                title: 'Клиенты',
                 intro: 'С&nbsp;одними работали долго и&nbsp;сделали много, а&nbsp;с&nbsp;кем-то&nbsp;— совсем чуть-чуть. Но&nbsp;я&nbsp;всех помню и&nbsp;люблю.'
             },
             workExperience: {
-                title: 'Где работал',
+                title: 'Опыт',
                 inStaff: 'В штате',
                 freelance: 'Проектно',
                 positions: {
@@ -59,10 +59,10 @@ const content = {
                 }
             },
             education: {
-                title: 'Когда учился'
+                title: 'Образование'
             },
             contact: {
-                title: 'Как связаться'
+                title: 'Давайте поговорим'
             }
         }
     },
@@ -108,11 +108,11 @@ const content = {
                 ]
             },
             clients: {
-                title: 'Who I worked with',
+                title: 'Clients',
                 intro: 'Some we\'ve worked with extensively and accomplished a lot together, while others — just briefly. But I remember and value them all.'
             },
             workExperience: {
-                title: 'Where I worked',
+                title: 'Experience',
                 inStaff: 'Full-time',
                 freelance: 'Project-based',
                 positions: {
@@ -128,7 +128,7 @@ const content = {
                 title: 'Education'
             },
             contact: {
-                title: 'Contact'
+                title: 'Let\'s talk'
             }
         }
     }
