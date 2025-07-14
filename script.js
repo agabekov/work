@@ -17,11 +17,10 @@ const content = {
                 title: 'Обо мне',
                 content: [
                     'Я пишу тексты. Пишу уже 11&nbsp;лет. И делаю это довольно хорошо.',
-                    'Лучше всего я умею две вещи.',
+                    'Вот что у меня получается лучше всего.',
                     'Писать с&nbsp;заботой&nbsp;— чтобы люди чувствовали любовь и&nbsp;уважение к&nbsp;себе, чтобы они не&nbsp;думали, что они глупые, когда пользуются вашими продуктами, чтобы чувствовали, что о&nbsp;них переживают, и&nbsp;что им&nbsp;хотят помочь.',
                     'Могу помочь, когда наступают сложные моменты&nbsp;— когда нужно сообщить клиентам непростую новость или объяснить изменения, которые могут вызвать беспокойство. <span class="highlight">Я&nbsp;тщательно подбираю каждое слово, чтобы сохранить доверие, которое вы&nbsp;строили годами.</span> Я&nbsp;помогаю вашим клиентам понять, что даже в&nbsp;непростых ситуациях вы&nbsp;остаётесь на&nbsp;их&nbsp;стороне, цените их&nbsp;и&nbsp;стремитесь сделать всё возможное, чтобы ваши отношения продолжались и&nbsp;крепли, несмотря на&nbsp;временные трудности.',
                     'И&nbsp;формулировать смыслы&nbsp;— превращать сложные идеи в&nbsp;ясные сообщения, которые находят отклик. Я&nbsp;помогаю компаниям выражать их&nbsp;ценности так, чтобы каждый понял суть без лишних слов. Создаю тексты, где за&nbsp;каждым предложением стоит цель и&nbsp;намерение, где нет места пустым фразам. <span class="highlight">Когда люди читают мои тексты, они видят картину целиком, понимают «почему» за&nbsp;каждым «что» и&nbsp;чувствуют связь с&nbsp;брендом на&nbsp;более глубоком уровне.</span>',
-                    'Выступление перед коллегами, презентация для клиентов, текст на&nbsp;сайте или в&nbsp;приложении, содержание буклета, личное письмо, ответы службы поддержки, шаблоны вакансий или пресс-релиз. В&nbsp;общем-то, я&nbsp;могу написать практически любой текст для вашей компании.'
                 ]
             },
             services: {
@@ -83,12 +82,11 @@ const content = {
             about: {
                 title: 'About me',
                 content: [
-                    'I write copy. I\'ve been writing for 11 years. And I'm pretty good at it.',
-                    'I\'m best at two things.',
+                    'I write copy. I\'ve been writing for 11 years. And I\'m pretty good at it.',
+                    'Here\'s what I do best.',
                     'I write with care — so people feel loved and respected, so they never feel stupid when using your products, so they know you genuinely care about them and want to help.',
                     'I can help when things get tough — when you need to deliver difficult news to customers or explain changes that might cause concern. <span class="highlight">I carefully choose every word to preserve the trust you\'ve spent years building.</span> I help your customers understand that even in challenging situations, you\'re still on their side, you value them, and you\'re committed to doing everything possible to keep your relationship strong, despite temporary difficulties.',
                     'And I shape ideas — turning complex concepts into clear messages that resonate. I help companies express their values so everyone gets the essence without unnecessary words. I create copy where every sentence has purpose and intention, where there\'s no room for empty phrases. <span class="highlight">When people read my work, they see the full picture, understand the "why" behind every "what," and feel connected to the brand on a deeper level.</span>',
-                    'A presentation to colleagues, a client presentation, website or app copy, brochure content, personal letters, support responses, job posting templates, or press releases. Basically, I can write almost any text for your company.'
                 ]
             },
             services: {
@@ -96,22 +94,22 @@ const content = {
                 content: [
                     {
                         title: 'Marketing copywriting',
-                        text: 'I explain how you\'re useful to clients and why they should choose you. I don\'t pressure people or use marketing clichés — I just provide information that helps them decide in your favor.'
+                        text: 'I explain how you help customers and why they should choose you. No pressure tactics or marketing clichés — just clear information that helps people decide in your favor.'
                     },
                     {
                         title: 'UX copywriting',
-                        text: 'I write for apps and websites to help, not confuse. Making interaction with your product pleasant and clear. When a user sees the text, they immediately understand what\'s happening and what to do next.'
+                        text: 'I write for apps and websites to guide, not confuse. Making interactions with your product smooth and intuitive. When users see the text, they immediately understand what\'s happening and what to do next.'
                     },
                     {
                         title: 'Ghostwriting',
-                        text: 'I study the features of your speech, then create texts that sound like you wrote them yourself. This all remains anonymous, no one will know about my work.',
-                        additionalText: 'I run my own ghostwriting studio. We work with corporations, startups and experts. <a href="https://noname.daniyar.link" target="_blank">Learn more</a>'
+                        text: 'I study your unique voice, then create content that sounds exactly like you wrote it yourself. Everything stays completely anonymous — no one will ever know about my involvement.',
+                        additionalText: 'I run my own ghostwriting studio. We work with corporations, startups, and industry experts. <a href="https://noname.daniyar.link" target="_blank">Learn more</a>'
                     }
                 ]
             },
             clients: {
                 title: 'Who I worked with',
-                intro: 'With some we worked long and did a lot, and with others — just a little bit. But I remember and love them all.'
+                intro: 'Some we\'ve worked with extensively and accomplished a lot together, while others — just briefly. But I remember and value them all.'
             },
             workExperience: {
                 title: 'Where I worked',
