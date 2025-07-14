@@ -11,7 +11,7 @@ const content = {
             description: 'Ищете копирайтера? Это я.'
         },
         name: 'Данияр Агабеков',
-        title: 'Нужен копирайтер? Напишите на agabekov@proton.me',
+        title: 'Хороший текст начинается с разговора. Напишите: agabekov@proton.me',
         sections: {
             about: {
                 title: 'Обо мне',
@@ -78,16 +78,16 @@ const content = {
             description: 'Looking for a copywriter? That\'s me.'
         },
         name: 'Daniyar Agabekov',
-        title: 'Need a copywriter? Write to agabekov@proton.me',
+        title: 'Great copy starts with a conversation. Email me: agabekov@proton.me',
         sections: {
             about: {
                 title: 'About me',
                 content: [
-                    'I write copy. I\'ve been writing for 11 years. And I do it quite well.',
+                    'I write copy. I\'ve been writing for 11 years. And I'm pretty good at it.',
                     'I\'m best at two things.',
-                    'Writing with care — so people feel loved and respected, so they don\'t think they\'re stupid when using your products, so they feel cared for and that you want to help them.',
-                    'I can help when tough moments arise — when you need to deliver difficult news to clients or explain changes that might cause concern. <span class="highlight">I carefully choose every word to preserve the trust you\'ve built over years.</span> I help your clients understand that even in difficult situations, you remain on their side, value them, and strive to do everything possible so your relationships continue and strengthen despite temporary difficulties.',
-                    'And formulating meanings — turning complex ideas into clear messages that resonate. I help companies express their values so everyone understands the essence without unnecessary words. I create texts where every sentence has purpose and intention, where there\'s no room for empty phrases. <span class="highlight">When people read my texts, they see the whole picture, understand the "why" behind every "what" and feel a connection with the brand on a deeper level.</span>',
+                    'I write with care — so people feel loved and respected, so they never feel stupid when using your products, so they know you genuinely care about them and want to help.',
+                    'I can help when things get tough — when you need to deliver difficult news to customers or explain changes that might cause concern. <span class="highlight">I carefully choose every word to preserve the trust you\'ve spent years building.</span> I help your customers understand that even in challenging situations, you\'re still on their side, you value them, and you\'re committed to doing everything possible to keep your relationship strong, despite temporary difficulties.',
+                    'And I shape ideas — turning complex concepts into clear messages that resonate. I help companies express their values so everyone gets the essence without unnecessary words. I create copy where every sentence has purpose and intention, where there\'s no room for empty phrases. <span class="highlight">When people read my work, they see the full picture, understand the "why" behind every "what," and feel connected to the brand on a deeper level.</span>',
                     'A presentation to colleagues, a client presentation, website or app copy, brochure content, personal letters, support responses, job posting templates, or press releases. Basically, I can write almost any text for your company.'
                 ]
             },
