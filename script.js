@@ -50,8 +50,8 @@ const content = {
                 inStaff: 'В штате',
                 freelance: 'Проектно',
                 positions: {
-                    'Продуктовый редактор': 'Product Editor',
-                    'Редактор коммуникаций и&nbsp;менеджер спецпроектов': 'Communications Editor & Special Projects Manager',
+                    'Продуктовый редактор': 'UX-writer',
+                    'Редактор коммуникаций и менеджер спецпроектов': 'Head of Content',
                     'Редактор коммуникаций и продуктов': 'Communications and Product Editor',
                     'Старший копирайтер': 'Senior Copywriter',
                     'Автор рассылки': 'Newsletter Writer',
@@ -116,16 +116,30 @@ const content = {
                 inStaff: 'Full-time',
                 freelance: 'Project-based',
                 positions: {
-                    'Продуктовый редактор': 'Product Editor',
-                    'Редактор коммуникаций и&nbsp;менеджер спецпроектов': 'Communications Editor & Special Projects Manager',
-                    'Редактор коммуникаций и продуктов': 'Communications and Product Editor',
+                    'Продуктовый редактор': 'UX-writer',
+                    'Редактор коммуникаций и менеджер спецпроектов': 'Head of Content',
+                    'Редактор коммуникаций и продуктов': 'Copywriter and UX-writer',
                     'Старший копирайтер': 'Senior Copywriter',
                     'Автор рассылки': 'Newsletter Writer',
                     'Копирайтер': 'Copywriter'
                 }
             },
             education: {
-                title: 'Education'
+                title: 'Education',
+                items: {
+                    '2025. Курс: Продакт-менеджер | Product Masters': '2025. Course: Product Manager | Product Masters',
+                    '2024. Курс: Introduction to UX-writing | Udemy': '2024. Course: Introduction to UX-writing | Udemy',
+                    '2022. Курс UX-копирайтинг | Яндекс.Практикум': '2022. Course: UX Copywriting | Yandex.Practicum',
+                    '2020. Воркшоп «Как разучиться придумывать рекламу» | mads': '2020. Workshop "How to Unlearn Creating Ads" | mads',
+                    '2020. Курс: Digital-маркетолог | GeniusMarketing': '2020. Course: Digital Marketer | GeniusMarketing',
+                    '2019. Курс: SEO-специалист | Нетология': '2019. Course: SEO Specialist | Netology',
+                    '2018. Воркшоп: Контент-маркетинг | Максим Ильяхов': '2018. Workshop: Content Marketing | Maxim Ilyakhov',
+                    '2017. Школа редакторов | Дизайн-бюро Артёма Горбунова': '2017. Editors School | Artem Gorbunov Design Bureau',
+                    '2017. Курс: Основы HTML и CSS | Нетология': '2017. Course: HTML & CSS Fundamentals | Netology',
+                    '2017. Курс: Веб-дизайн | Open IT': '2017. Course: Web Design | Open IT',
+                    '2017. Курс: Работа с клиентом | Максим Ильяхов': '2017. Course: Client Relations | Maxim Ilyakhov',
+                    '2016. Курс: Главред | Максим Ильяхов': '2016. Course: Chief Editor | Maxim Ilyakhov'
+                }
             },
             contact: {
                 title: 'Let\'s talk'
@@ -207,6 +221,14 @@ document.addEventListener('DOMContentLoaded', function() {
             clientsIntro.innerHTML = langContent.sections.clients.intro;
         }
         
+        // Update client items with translations
+        const clientItems = document.querySelectorAll('.client-item');
+        clientItems.forEach(item => {
+            if (item.dataset.ru && item.dataset.en) {
+                item.textContent = lang === 'ru' ? item.dataset.ru : item.dataset.en;
+            }
+        });
+        
         // Update work experience section headers
         const workSectionTitles = document.querySelectorAll('.work-section-title');
         if (workSectionTitles[0]) workSectionTitles[0].textContent = langContent.sections.workExperience.inStaff;
@@ -216,8 +238,99 @@ document.addEventListener('DOMContentLoaded', function() {
         const positions = document.querySelectorAll('.position');
         positions.forEach(position => {
             const originalText = position.textContent;
-            if (langContent.sections.workExperience.positions[originalText]) {
+            if (lang === 'en' && langContent.sections.workExperience.positions[originalText]) {
                 position.textContent = langContent.sections.workExperience.positions[originalText];
+            } else if (lang === 'ru') {
+                // Reset to Russian text if switching back to Russian
+                const russianPositions = {
+                    'UX-writer': 'Продуктовый редактор',
+                    'Head of Content': 'Редактор коммуникаций и менеджер спецпроектов',
+                    'Copywriter and UX-writer': 'Редактор коммуникаций и продуктов',
+                    'Senior Copywriter': 'Старший копирайтер',
+                    'Newsletter Writer': 'Автор рассылки',
+                    'Copywriter': 'Копирайтер'
+                };
+                if (russianPositions[originalText]) {
+                    position.innerHTML = russianPositions[originalText];
+                }
+            }
+        });
+
+        // Update company names in work experience
+        const companyNames = document.querySelectorAll('.company-name');
+        companyNames.forEach(company => {
+            const originalText = company.textContent;
+            if (lang === 'en') {
+                const companyTranslations = {
+                    'Рекламное агентство «Комбинат»': '"Combinat" Advertising Agency'
+                };
+                if (companyTranslations[originalText]) {
+                    company.textContent = companyTranslations[originalText];
+                }
+            } else if (lang === 'ru') {
+                const companyTranslations = {
+                    '"Combinat" Advertising Agency': 'Рекламное агентство «Комбинат»'
+                };
+                if (companyTranslations[originalText]) {
+                    company.textContent = companyTranslations[originalText];
+                }
+            }
+        });
+
+        // Update work experience dates
+        const workPeriods = document.querySelectorAll('.work-period');
+        workPeriods.forEach(period => {
+            let text = period.textContent;
+            if (lang === 'en') {
+                const months = {
+                    'Январь': 'January', 'Февраль': 'February', 'Март': 'March', 'Апрель': 'April',
+                    'Май': 'May', 'Июнь': 'June', 'Июль': 'July', 'Август': 'August',
+                    'Сентябрь': 'September', 'Октябрь': 'October', 'Ноябрь': 'November', 'Декабрь': 'December',
+                    'Сейчас': 'Present'
+                };
+                Object.keys(months).forEach(ru => {
+                    text = text.replace(new RegExp(ru, 'g'), months[ru]);
+                });
+                period.textContent = text;
+            } else if (lang === 'ru') {
+                const months = {
+                    'January': 'Январь', 'February': 'Февраль', 'March': 'Март', 'April': 'Апрель',
+                    'May': 'Май', 'June': 'Июнь', 'July': 'Июль', 'August': 'Август',
+                    'September': 'Сентябрь', 'October': 'Октябрь', 'November': 'Ноябрь', 'December': 'Декабрь',
+                    'Present': 'Сейчас'
+                };
+                Object.keys(months).forEach(en => {
+                    text = text.replace(new RegExp(en, 'g'), months[en]);
+                });
+                period.textContent = text;
+            }
+        });
+
+        // Update education items
+        const educationItems = document.querySelectorAll('.education-item');
+        educationItems.forEach(item => {
+            const originalText = item.textContent;
+            if (lang === 'en' && langContent.sections.education.items && langContent.sections.education.items[originalText]) {
+                item.textContent = langContent.sections.education.items[originalText];
+            } else if (lang === 'ru') {
+                // Reset to Russian text if switching back to Russian
+                const russianEducationItems = {
+                    '2025. Course: Product Manager | Product Masters': '2025. Курс: Продакт-менеджер | Product Masters',
+                    '2024. Course: Introduction to UX-writing | Udemy': '2024. Курс: Introduction to UX-writing | Udemy',
+                    '2022. Course: UX Copywriting | Yandex.Practicum': '2022. Курс UX-копирайтинг | Яндекс.Практикум',
+                    '2020. Workshop "How to Unlearn Creating Ads" | mads': '2020. Воркшоп «Как разучиться придумывать рекламу» | mads',
+                    '2020. Course: Digital Marketer | GeniusMarketing': '2020. Курс: Digital-маркетолог | GeniusMarketing',
+                    '2019. Course: SEO Specialist | Netology': '2019. Курс: SEO-специалист | Нетология',
+                    '2018. Workshop: Content Marketing | Maxim Ilyakhov': '2018. Воркшоп: Контент-маркетинг | Максим Ильяхов',
+                    '2017. Editors School | Artem Gorbunov Design Bureau': '2017. Школа редакторов | Дизайн-бюро Артёма Горбунова',
+                    '2017. Course: HTML & CSS Fundamentals | Netology': '2017. Курс: Основы HTML и CSS | Нетология',
+                    '2017. Course: Web Design | Open IT': '2017. Курс: Веб-дизайн | Open IT',
+                    '2017. Course: Client Relations | Maxim Ilyakhov': '2017. Курс: Работа с клиентом | Максим Ильяхов',
+                    '2016. Course: Chief Editor | Maxim Ilyakhov': '2016. Курс: Главред | Максим Ильяхов'
+                };
+                if (russianEducationItems[originalText]) {
+                    item.textContent = russianEducationItems[originalText];
+                }
             }
         });
     }
@@ -237,6 +350,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     element.style.opacity = '1';
                     element.style.minHeight = '';
                     element.classList.remove('typing', 'no-cursor');
+                    
+                    // Update client items with translations
+                    if (element.classList.contains('client-item') && element.dataset.ru && element.dataset.en) {
+                        element.textContent = currentLanguage === 'ru' ? element.dataset.ru : element.dataset.en;
+                    }
                 });
             }
         });
@@ -315,6 +433,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     const textElements = content.querySelectorAll('p, h3, h4, li, blockquote p, cite, .client-item, .education-item, .work-period, .company-name, .social a');
                     textElements.forEach(element => {
                         element.style.opacity = '1';
+                        
+                        // Update client items with translations
+                        if (element.classList.contains('client-item') && element.dataset.ru && element.dataset.en) {
+                            element.textContent = currentLanguage === 'ru' ? element.dataset.ru : element.dataset.en;
+                        }
                     });
                     content.classList.add('typed');
                 }
