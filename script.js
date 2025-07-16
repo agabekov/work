@@ -64,6 +64,9 @@ const content = {
             contact: {
                 title: 'Давайте поговорим'
             }
+        },
+        footer: {
+            copyright: '© 2025 Данияр Агабеков'
         }
     },
     en: {
@@ -144,6 +147,9 @@ const content = {
             contact: {
                 title: 'Let\'s talk'
             }
+        },
+        footer: {
+            copyright: '© 2025 Daniyar Agabekov'
         }
     }
 };
@@ -197,6 +203,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('#work-experience h2').textContent = langContent.sections.workExperience.title;
         document.querySelector('#education h2').textContent = langContent.sections.education.title;
         document.querySelector('#contact h2').textContent = langContent.sections.contact.title;
+        
+        // Update footer copyright
+        document.getElementById('footer-copyright').textContent = langContent.footer.copyright;
         
         // Update about section content
         const aboutContent = document.querySelector('#about .content');

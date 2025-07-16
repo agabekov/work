@@ -495,4 +495,55 @@ section#testimonials .content {
     .education-grid {
         grid-template-columns: 1fr 1fr;
     }
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    padding: 2rem 0;
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-link-hover);
+    border-bottom-color: var(--color-link-hover);
+}
+
+.dark-theme footer {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-dark);
+}
+
+.dark-theme .footer-links a {
+    color: var(--color-text-dark);
+}
+
+.dark-theme .footer-links a:hover {
+    color: var(--color-link-hover-dark);
+    border-bottom-color: var(--color-link-hover-dark);
 } 
