@@ -55,6 +55,7 @@ const content = {
                     'Редактор коммуникаций и продуктов': 'Communications and Product Editor',
                     'Старший копирайтер': 'Senior Copywriter',
                     'Автор рассылки': 'Newsletter Writer',
+                    'CRM-копирайтер': 'CRM-copywriter',
                     'Копирайтер': 'Copywriter'
                 }
             },
@@ -124,6 +125,7 @@ const content = {
                     'Редактор коммуникаций и продуктов': 'Copywriter and UX-writer',
                     'Старший копирайтер': 'Senior Copywriter',
                     'Автор рассылки': 'Newsletter Writer',
+                    'CRM-копирайтер': 'CRM-copywriter',
                     'Копирайтер': 'Copywriter'
                 }
             },
@@ -257,6 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     'Copywriter and UX-writer': 'Редактор коммуникаций и продуктов',
                     'Senior Copywriter': 'Старший копирайтер',
                     'Newsletter Writer': 'Автор рассылки',
+                    'CRM-copywriter': 'CRM-копирайтер',
                     'Copywriter': 'Копирайтер'
                 };
                 if (russianPositions[originalText]) {
