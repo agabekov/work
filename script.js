@@ -156,10 +156,57 @@ const content = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+// Function to detect user's preferred language based on location and browser settings
+async function detectUserLanguage() {
+    try {
+        // Try IP-based geolocation first
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        
+        // Countries that typically use Russian
+        const russianSpeakingCountries = [
+            'RU', // Russia
+            'KZ', // Kazakhstan 
+            'BY', // Belarus
+            'KG', // Kyrgyzstan
+            'TJ', // Tajikistan
+            'UZ', // Uzbekistan
+            'AM', // Armenia
+            'AZ', // Azerbaijan
+            'GE', // Georgia
+            'MD', // Moldova
+            'UA'  // Ukraine
+        ];
+        
+        if (data.country_code && russianSpeakingCountries.includes(data.country_code)) {
+            return 'ru';
+        } else if (data.country_code) {
+            return 'en';
+        }
+    } catch (error) {
+        console.log('IP geolocation failed, falling back to browser language');
+    }
+    
+    // Fallback to browser language preference
+    const browserLang = navigator.language || navigator.languages[0];
+    if (browserLang.startsWith('ru')) {
+        return 'ru';
+    }
+    
+    // Default to English for all other cases
+    return 'en';
+}
+
+document.addEventListener('DOMContentLoaded', async function() {
     // Language toggle functionality
     const languageToggle = document.querySelector('.language-toggle');
-    let currentLanguage = localStorage.getItem('language') || 'ru';
+    let currentLanguage = localStorage.getItem('language');
+    
+    // Auto-detect language if not previously set
+    if (!currentLanguage) {
+        currentLanguage = await detectUserLanguage();
+        localStorage.setItem('language', currentLanguage);
+    }
     
     // Apply language on page load
     applyLanguage(currentLanguage);
