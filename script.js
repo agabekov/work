@@ -11,7 +11,7 @@ const content = {
             description: 'Ищете копирайтера? Это я.'
         },
         name: 'Данияр Агабеков',
-        title: 'Хороший текст начинается с разговора. Напишите: agabekov@proton.me',
+        title: 'Хороший текст начинается с разговора. Напишите: agabekovd@gmail.com',
         sections: {
             about: {
                 title: 'Обо мне',
@@ -81,7 +81,7 @@ const content = {
             description: 'Looking for a copywriter? That\'s me.'
         },
         name: 'Daniyar Agabekov',
-        title: 'Great copy starts with a conversation. Email me: agabekov@proton.me',
+        title: 'Great copy starts with a conversation. Email me: agabekovd@gmail.com',
         sections: {
             about: {
                 title: 'About me',
