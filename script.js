@@ -2,8 +2,8 @@
 const content = {
     ru: {
         themeToggle: {
-            light: 'Чернила',
-            dark: 'Бумага'
+            light: 'Ночью',
+            dark: 'Днём'
         },
         languageToggle: 'Eng',
         meta: {
@@ -72,8 +72,8 @@ const content = {
     },
     en: {
         themeToggle: {
-            light: 'Ink',
-            dark: 'Paper'
+            light: 'Night',
+            dark: 'Day'
         },
         languageToggle: 'Рус',
         meta: {
