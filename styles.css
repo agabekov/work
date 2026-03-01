@@ -67,7 +67,6 @@ body.dark-theme {
     z-index: 10;
 }
 
-.language-toggle,
 .theme-toggle {
     background: none;
     border: 1px solid currentColor;
@@ -78,12 +77,10 @@ body.dark-theme {
     transition: all 0.3s ease;
 }
 
-.language-toggle:hover,
 .theme-toggle:hover {
     opacity: 0.8;
 }
 
-.dark-theme .language-toggle,
 .dark-theme .theme-toggle {
     border-color: var(--color-text-dark);
     color: var(--color-text-dark);
