@@ -50,6 +50,7 @@ const content = {
                 inStaff: 'В штате',
                 freelance: 'Проектно',
                 positions: {
+                    'Управляющий сервисом Kaspi Гид': 'Kaspi Guide Service Manager',
                     'Продуктовый редактор': 'UX-writer',
                     'Редактор коммуникаций и менеджер спецпроектов': 'Head of Content',
                     'Редактор коммуникаций и продуктов': 'Communications and Product Editor',
@@ -301,6 +302,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             } else if (lang === 'ru') {
                 // Reset to Russian text if switching back to Russian
                 const russianPositions = {
+                    'Kaspi Guide Service Manager': 'Управляющий сервисом Kaspi Гид',
                     'UX-writer': 'Продуктовый редактор',
                     'Head of Content': 'Редактор коммуникаций и менеджер спецпроектов',
                     'Copywriter and UX-writer': 'Редактор коммуникаций и продуктов',
