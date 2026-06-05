@@ -1,26 +1,156 @@
-/* Base styles */
-* {
+/* ============================================================
+   JetBrains Mono — self-hosted (latin, latin-ext, cyrillic, cyrillic-ext)
+   700 reuses the 400 variable file, exactly as Google serves it.
+   ============================================================ */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/public/fonts/jetbrains-mono-cyrillic-ext-400i.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/public/fonts/jetbrains-mono-cyrillic-400i.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/public/fonts/jetbrains-mono-latin-ext-400i.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/public/fonts/jetbrains-mono-latin-400i.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/public/fonts/jetbrains-mono-cyrillic-ext-400.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/public/fonts/jetbrains-mono-cyrillic-400.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/public/fonts/jetbrains-mono-latin-ext-400.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/public/fonts/jetbrains-mono-latin-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/public/fonts/jetbrains-mono-cyrillic-ext-400.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/public/fonts/jetbrains-mono-cyrillic-400.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/public/fonts/jetbrains-mono-latin-ext-400.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/public/fonts/jetbrains-mono-latin-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    hanging-punctuation: first last;
+}
+
 :root {
-    --font-main: 'JetBrains Mono', monospace;
-    /* Light theme (Usuki) */
+    --font-main: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color-scheme: light;
+
+    /* Usuki — light theme (semantic tokens) */
     --color-text: #000;
     --color-background: #F0F0E8;
     --color-link: #000;
     --color-link-hover: #666;
-    /* Dark theme (Sumi) */
-    --color-text-dark: #E5E5DF;
-    --color-background-dark: #1A1A1A;
-    --color-link-dark: #A8D8B9;
-    --color-link-hover-dark: #83AD94;
-    --color-accent-dark: #665F4D;
-    /* Highlight colors */
+    --color-border: rgba(0, 0, 0, 0.1);
+    --color-muted: rgba(0, 0, 0, 0.55);
     --highlight-color: rgba(167, 139, 250, 0.2);
-    --highlight-color-dark: rgba(167, 139, 250, 0.4);
+
+    /* Spacing scale */
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2rem;
+    --space-6: 3rem;
+}
+
+.dark-theme {
+    color-scheme: dark;
+
+    /* Sumi — dark theme (same token names) */
+    --color-text: #E5E5DF;
+    --color-background: #1A1A1A;
+    --color-link: #A8D8B9;
+    --color-link-hover: #83AD94;
+    --color-border: rgba(229, 229, 223, 0.1);
+    --color-muted: rgba(229, 229, 223, 0.6);
+    --highlight-color: rgba(167, 139, 250, 0.4);
+}
+
+/* Suppress transitions on first paint (added by inline <head> script, removed by script.js) */
+.no-transitions *,
+.no-transitions *::before,
+.no-transitions *::after {
+    transition: none !important;
 }
 
 body {
@@ -33,23 +163,18 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.dark-theme {
-    background-color: var(--color-background-dark);
-    color: var(--color-text-dark);
+/* Keyboard focus */
+:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+    border-radius: 1px;
 }
 
-.dark-theme a {
-    color: var(--color-link-dark);
-    border-bottom: 1px solid var(--color-link-dark);
-}
-
-.dark-theme a:hover {
-    color: var(--color-link-hover-dark);
-}
-
-/* Header controls */
+/* ============================================================
+   Header controls (theme toggle)
+   ============================================================ */
 .header-controls {
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 20px;
     display: flex;
@@ -58,41 +183,44 @@ body.dark-theme {
 }
 
 .theme-toggle {
-    background: none;
+    background-color: var(--color-background);
     border: 1px solid currentColor;
+    color: var(--color-text);
     padding: 8px 12px;
     font-family: var(--font-main);
     cursor: pointer;
     font-size: 14px;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .theme-toggle:hover {
     opacity: 0.8;
 }
 
-.dark-theme .theme-toggle {
-    border-color: var(--color-text-dark);
-    color: var(--color-text-dark);
-}
-
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 4rem 2rem;
-    padding-top: 5rem; /* Extra padding at top to account for fixed button */
+    padding: var(--space-6) var(--space-4);
+    padding-top: 5rem; /* room for the fixed theme toggle */
     width: 100%;
     overflow-x: hidden;
     position: relative;
 }
 
-/* Typography */
-h1, h2, h3 {
+/* ============================================================
+   Typography
+   ============================================================ */
+:where(h1, h2, h3) {
     font-weight: 700;
 }
 
+h1, h2, h3, .position, .work-section-title {
+    text-wrap: balance;
+}
+
 h1 {
-    font-size: 2rem;
+    font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2rem);
+    letter-spacing: -0.02em;
     margin-bottom: 0.25rem;
     transition: opacity 0.8s ease;
 }
@@ -102,21 +230,32 @@ h1 {
 }
 
 h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    position: relative;
+    font-size: clamp(1.5rem, 1.3rem + 1vw, 1.75rem);
+    letter-spacing: -0.015em;
+    margin-bottom: var(--space-2);
     display: inline-block;
+    position: relative;
 }
 
+h2::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2px;
+    margin-top: var(--space-1);
+    background: currentColor;
+    opacity: 0.4;
+}
 
 h3 {
     font-size: 1.25rem;
-    margin-bottom: 0.5rem;
     margin-top: 0;
+    margin-bottom: var(--space-1);
 }
 
 p {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-2);
+    text-wrap: pretty;
 }
 
 #title {
@@ -131,8 +270,9 @@ p {
 
 a {
     color: var(--color-link);
-    text-decoration: none;
-    border-bottom: 1px solid #000;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
     transition: color 0.3s ease;
 }
 
@@ -140,15 +280,17 @@ a:hover {
     color: var(--color-link-hover);
 }
 
-/* Header */
+/* ============================================================
+   Header
+   ============================================================ */
 header {
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-6);
 }
 
 .header-content {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--space-3);
 }
 
 .profile-image-container {
@@ -164,17 +306,15 @@ header {
     transition: border-color 0.3s ease;
 }
 
-.dark-theme .profile-image {
-    border-color: var(--color-text-dark);
-}
-
 .header-text {
     flex-grow: 1;
 }
 
-/* Sections */
+/* ============================================================
+   Sections
+   ============================================================ */
 section {
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-6);
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
@@ -189,7 +329,7 @@ section.visible {
 }
 
 .content {
-    margin-top: 0.5rem;
+    margin-top: var(--space-1);
     transition: opacity 0.3s ease;
 }
 
@@ -197,25 +337,22 @@ section.visible {
     opacity: 0;
 }
 
-
-/* Service section */
+/* Services */
 .service {
-    margin-bottom: 1.25rem;
+    margin-bottom: var(--space-3);
 }
 
 .service:last-child {
     margin-bottom: 0;
 }
 
-/* Work Experience */
+/* ============================================================
+   Work experience
+   ============================================================ */
 .work-entry {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.dark-theme .work-entry {
-    border-bottom: 1px solid rgba(229, 229, 223, 0.1);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .work-entry:last-child {
@@ -225,10 +362,12 @@ section.visible {
 
 .work-section-title {
     font-weight: 700;
-    margin-bottom: 1.5rem;
-    margin-top: 2rem;
-    font-size: 1.2rem;
-    position: relative;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-3);
     display: inline-block;
 }
 
@@ -239,75 +378,153 @@ section.visible {
 .work-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
+    align-items: baseline;
+    margin-bottom: var(--space-1);
 }
 
 .work-period {
     font-style: italic;
-    opacity: 0.8;
+    color: var(--color-muted);
     white-space: nowrap;
-    margin-right: 1rem;
+    margin-right: var(--space-2);
 }
 
 .company-name {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--color-muted);
     text-align: right;
     flex: 1;
 }
 
 .position {
-    font-weight: 400;
-    margin-bottom: 0.5rem;
+    font-weight: 700;
     font-size: 1.1rem;
+    margin-bottom: var(--space-1);
 }
 
-/* Client Grid */
+/* ============================================================
+   Clients
+   ============================================================ */
 .client-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
     width: 100%;
 }
 
 .client-item {
-    flex: 1 0 100%;
     padding: 0.25rem 0;
-    position: relative;
 }
 
-/* Media queries for responsive client grid */
 @media (min-width: 576px) {
-    .client-item {
-        flex: 1 0 calc(50% - 0.5rem);
-        padding: 0.5rem 0;
-    }
-    
     .client-grid {
-        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-2);
+    }
+
+    .client-item {
+        padding: var(--space-1) 0;
     }
 }
 
 @media (min-width: 768px) {
-    .client-item {
-        flex: 1 0 calc(33.333% - 1rem);
+    .client-grid {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
-/* Media queries */
-@media (max-width: 768px) {
+/* ============================================================
+   Education
+   ============================================================ */
+.education-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+}
+
+.education-item {
+    padding: var(--space-1) 0;
+}
+
+@media (min-width: 576px) {
+    .education-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ============================================================
+   Contact
+   ============================================================ */
+.social {
+    margin-top: 0.75rem;
+}
+
+.social a {
+    margin-right: var(--space-2);
+}
+
+/* ============================================================
+   Highlight (signature accent) — gradient wraps cleanly across lines
+   ============================================================ */
+.highlight {
+    background-image: linear-gradient(var(--highlight-color), var(--highlight-color));
+    background-repeat: no-repeat;
+    background-size: 100% 0.5em;
+    background-position: 0 88%;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    border-radius: 0.1em;
+    padding: 0 0.2em;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+footer {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-4) 0;
+    margin-top: var(--space-6);
+    text-align: center;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-2);
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-link-hover);
+    border-bottom-color: var(--color-link-hover);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 767.98px) {
     .container {
-        padding: 2rem 1rem;
+        padding: var(--space-4) var(--space-2);
         padding-top: 4rem;
-    }
-
-    h1 {
-        font-size: 1.75rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
     }
 
     .work-header {
@@ -324,93 +541,29 @@ section.visible {
 
     .work-period {
         font-size: 0.9rem;
+        margin-right: 0;
+    }
+
+    footer .container {
+        padding: 0 var(--space-2);
     }
 }
 
-/* Elegant highlight */
-.highlight {
-    box-shadow: inset 0 -0.5em 0 var(--highlight-color);
-    border-radius: 0.1em;
-    padding: 0 0.2em;
-    transition: all 0.3s ease;
-}
+/* ============================================================
+   Reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 
-.dark-theme .highlight {
-    box-shadow: inset 0 -0.5em 0 var(--highlight-color-dark);
-}
-
-/* Contact section */
-.social {
-    margin-top: 0.75rem;
-}
-
-.social a {
-    margin-right: 1rem;
-}
-
-.education-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-}
-
-.education-item {
-    padding: 0.5rem 0;
-}
-
-@media (min-width: 576px) {
-    .education-grid {
-        grid-template-columns: 1fr 1fr;
+    .js h1,
+    .js #title,
+    .js .content,
+    .js section {
+        opacity: 1 !important;
+        transform: none !important;
     }
 }
-
-/* Footer */
-footer {
-    background-color: var(--color-background);
-    color: var(--color-text);
-    padding: 2rem 0;
-    margin-top: 4rem;
-    text-align: center;
-    font-size: 14px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-footer .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-}
-
-.footer-links a {
-    color: var(--color-text);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: var(--color-link-hover);
-    border-bottom-color: var(--color-link-hover);
-}
-
-.dark-theme footer {
-    background-color: var(--color-background-dark);
-    color: var(--color-text-dark);
-}
-
-.dark-theme .footer-links a {
-    color: var(--color-text-dark);
-}
-
-.dark-theme .footer-links a:hover {
-    color: var(--color-link-hover-dark);
-    border-bottom-color: var(--color-link-hover-dark);
-} 

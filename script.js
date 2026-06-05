@@ -1,101 +1,114 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const themeLabels = {
-        light: 'Ночью',
-        dark: 'Днём'
-    };
+'use strict';
 
+// Runs with `defer`, so the DOM is parsed by the time this executes.
+(function () {
+    const root = document.documentElement;
+    const themeLabels = { light: 'Ночью', dark: 'Днём' };
     const themeToggle = document.querySelector('.theme-toggle');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    let currentTheme = localStorage.getItem('theme');
-    const hasManualPreference = currentTheme !== null;
-
-    if (!hasManualPreference) {
-        currentTheme = prefersDarkScheme.matches ? 'dark' : 'light';
+    function readStoredTheme() {
+        try {
+            return localStorage.getItem('theme');
+        } catch (e) {
+            return null;
+        }
     }
 
-    function updateThemeButtonText() {
+    function storeTheme(value) {
+        try {
+            localStorage.setItem('theme', value);
+        } catch (e) {
+            /* private mode / storage disabled — non-fatal */
+        }
+    }
+
+    function syncToggle() {
         if (!themeToggle) {
             return;
         }
-
-        const isDark = document.body.classList.contains('dark-theme');
+        const isDark = root.classList.contains('dark-theme');
         themeToggle.textContent = isDark ? themeLabels.dark : themeLabels.light;
+        themeToggle.setAttribute('aria-pressed', String(isDark));
     }
 
-    if (currentTheme === 'dark') {
-        document.body.classList.add('dark-theme');
-    } else {
-        document.body.classList.remove('dark-theme');
+    function applyTheme(isDark) {
+        root.classList.toggle('dark-theme', isDark);
+        syncToggle();
     }
 
-    updateThemeButtonText();
+    // The theme class was already applied before first paint by the inline
+    // <head> script; here we only sync the toggle's label and state.
+    syncToggle();
 
     if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
-            document.body.classList.toggle('dark-theme');
-
-            const isDark = document.body.classList.contains('dark-theme');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            updateThemeButtonText();
+        themeToggle.addEventListener('click', function () {
+            const nextIsDark = !root.classList.contains('dark-theme');
+            applyTheme(nextIsDark);
+            storeTheme(nextIsDark ? 'dark' : 'light');
         });
     }
 
-    prefersDarkScheme.addEventListener('change', function(e) {
-        if (!localStorage.getItem('theme')) {
-            if (e.matches) {
-                document.body.classList.add('dark-theme');
-            } else {
-                document.body.classList.remove('dark-theme');
-            }
-
-            updateThemeButtonText();
+    // Follow the OS theme only while the user hasn't made a manual choice.
+    prefersDark.addEventListener('change', function (e) {
+        if (readStoredTheme() === null) {
+            applyTheme(e.matches);
         }
     });
 
+    // Drop the first-paint transition guard once the initial styles have settled,
+    // so theme switches still animate but the initial load doesn't.
+    requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+            root.classList.remove('no-transitions');
+        });
+    });
+
+    // ----- Reveal: header + sections -----
     const name = document.getElementById('name');
     const title = document.getElementById('title');
+    const sections = document.querySelectorAll('.typed-section');
 
-    setTimeout(() => {
+    function revealHeader() {
         if (name) {
             name.style.opacity = '1';
         }
-
         if (title) {
             title.style.opacity = '1';
         }
-    }, 300);
-
-    const sections = document.querySelectorAll('.typed-section');
+    }
 
     function revealSection(section) {
         section.classList.add('visible');
-
         const content = section.querySelector('.content');
-        if (content && !content.classList.contains('typed')) {
+        if (content) {
             content.style.opacity = '1';
-            const textElements = content.querySelectorAll('p, h3, h4, li, blockquote p, cite, .client-item, .education-item, .work-period, .company-name, .social a');
-            textElements.forEach(element => {
-                element.style.opacity = '1';
-            });
-            content.classList.add('typed');
         }
     }
 
-    if ('IntersectionObserver' in window) {
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    revealSection(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-
-        sections.forEach(section => {
-            sectionObserver.observe(section);
-        });
-    } else {
-        // Старый браузер без IntersectionObserver — показываем всё сразу
+    if (prefersReducedMotion.matches) {
+        // No motion: show everything immediately.
+        revealHeader();
         sections.forEach(revealSection);
+    } else {
+        requestAnimationFrame(revealHeader);
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver(function (entries, obs) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        revealSection(entry.target);
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            sections.forEach(function (section) {
+                observer.observe(section);
+            });
+        } else {
+            sections.forEach(revealSection);
+        }
     }
-});
+})();

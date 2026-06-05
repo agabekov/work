@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+    <script>
+    (function () {
+        var d = document.documentElement;
+        d.classList.remove('no-js');
+        d.classList.add('js');
+        d.classList.add('no-transitions');
+        try {
+            var t = localStorage.getItem('theme');
+            if (t === 'dark' || (t === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                d.classList.add('dark-theme');
+            }
+        } catch (e) {}
+    })();
+    </script>
     <title>Работа Данияра Агабекова</title>
     <meta name="description" content="Ищете копирайтера? Это я.">
-    
+    <link rel="canonical" href="https://work.daniyar.link/">
+    <meta name="theme-color" content="#F0F0E8" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: dark)">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://work.daniyar.link/">
@@ -15,6 +31,7 @@
     <meta property="og:image" content="https://work.daniyar.link/daniyar.jpg">
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="800">
+    <meta property="og:locale" content="ru_RU">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -22,34 +39,54 @@
     <meta property="twitter:title" content="Работа Данияра Агабекова">
     <meta property="twitter:description" content="Ищете копирайтера? Это я.">
     <meta property="twitter:image" content="https://work.daniyar.link/daniyar.jpg">
-    
+
     <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
     <link rel="shortcut icon" href="favicon.ico">
-    
+
+    <link rel="preload" href="/public/fonts/jetbrains-mono-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/public/fonts/jetbrains-mono-cyrillic-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Данияр Агабеков",
+        "jobTitle": "Копирайтер",
+        "url": "https://work.daniyar.link/",
+        "image": "https://work.daniyar.link/daniyar.jpg",
+        "email": "agabekovd@gmail.com",
+        "knowsLanguage": ["ru", "en"],
+        "sameAs": [
+            "https://t.me/agabekov",
+            "https://go.daniyar.link/li-work",
+            "https://go.daniyar.link/instagram-work",
+            "https://go.daniyar.link/x-work",
+            "https://go.daniyar.link/blog-work"
+        ],
+        "worksFor": { "@type": "Organization", "name": "Kaspi.kz" }
+    }
+    </script>
 </head>
 <body>
     <div class="header-controls">
-        <button class="theme-toggle" type="button" aria-label="Переключить тему">Ночью</button>
+        <button class="theme-toggle" type="button" aria-pressed="false">Ночью</button>
     </div>
-    <div class="container">
+    <main class="container">
         <header>
             <div class="header-content">
                 <div class="profile-image-container">
-                    <img src="daniyar.jpg" alt="Данияр Агабеков" class="profile-image">
+                    <img src="daniyar-avatar.jpg" alt="Портрет: Данияр Агабеков" class="profile-image" width="100" height="100" decoding="async" fetchpriority="high">
                 </div>
-                <div class="header-text">
+                <hgroup class="header-text">
                     <h1 id="name">Данияр Агабеков</h1>
-                    <p id="title">Хороший текст начинается с разговора. Напишите: agabekovd@gmail.com</p>
-                </div>
+                    <p id="title">Хороший текст начинается с разговора. Напишите:&nbsp;agabekovd@gmail.com</p>
+                </hgroup>
             </div>
         </header>
-        
+
         <section id="about" class="typed-section">
             <h2>Обо мне</h2>
             <div class="content">
@@ -60,7 +97,7 @@
                 <p>И&nbsp;формулировать смыслы&nbsp;— превращать сложные идеи в&nbsp;ясные сообщения, которые находят отклик. Я&nbsp;помогаю компаниям выражать их&nbsp;ценности так, чтобы каждый понял суть без лишних слов. Создаю тексты, где за&nbsp;каждым предложением стоит цель и&nbsp;намерение, где нет места пустым фразам. <span class="highlight">Когда люди читают мои тексты, они видят картину целиком, понимают «почему» за&nbsp;каждым «что» и&nbsp;чувствуют связь с&nbsp;брендом на&nbsp;более глубоком уровне.</span></p>
             </div>
         </section>
-        
+
         <section id="services" class="typed-section">
             <h2>Чем занимаюсь</h2>
             <div class="content">
@@ -68,20 +105,20 @@
                     <h3>Маркетинговый копирайтинг</h3>
                     <p>Объясняю, чем вы&nbsp;полезны клиентам и&nbsp;почему вас стоит выбрать. Не&nbsp;давлю на&nbsp;людей и&nbsp;не&nbsp;использую маркетинговые штампы&nbsp;— просто даю информацию, которая помогает принять решение в&nbsp;вашу пользу.</p>
                 </div>
-                
+
                 <div class="service">
                     <h3>UX-копирайтинг</h3>
                     <p>Пишу для приложений и&nbsp;сайтов так, чтобы не&nbsp;запутать, а&nbsp;помочь. Сделать взаимодействие с&nbsp;вашим продуктом приятным и&nbsp;понятным. Когда пользователь увидит текст, он&nbsp;сразу понимает, что происходит и&nbsp;что делать дальше.</p>
                 </div>
-                
+
                 <div class="service">
                     <h3>Гострайтинг</h3>
                     <p>Изучаю особенности вашей речи, а&nbsp;затем создаю тексты, которые звучат так, будто вы&nbsp;написали их&nbsp;сами. Это всё останется анонимным, никто не&nbsp;узнает о&nbsp;моей работе.</p>
-                    <p>Руковожу своей студией гострайтинга. Работаем с корпорациями, стартапами и экспертами. <a href="https://noname.daniyar.link" target="_blank">Подробнее</a></p>
+                    <p>Руковожу своей студией гострайтинга. Работаем с корпорациями, стартапами и экспертами. <a href="https://noname.daniyar.link" target="_blank" rel="noopener">Подробнее</a></p>
                 </div>
             </div>
         </section>
-        
+
         <section id="clients" class="typed-section">
             <h2>Клиенты</h2>
             <div class="content">
@@ -111,18 +148,18 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="work-experience" class="typed-section">
             <h2>Опыт</h2>
             <div class="content">
-                <h4 class="work-section-title">В штате</h4>
-                
+                <h3 class="work-section-title">В штате</h3>
+
                 <div class="work-entry">
                     <div class="work-header">
                         <div class="work-period">Ноябрь 2025&nbsp;— Сейчас</div>
                         <div class="company-name">Kaspi.kz</div>
                     </div>
-                    <h3 class="position">Управляющий сервисом Kaspi Гид</h3>
+                    <h4 class="position">Управляющий сервисом Kaspi Гид</h4>
                 </div>
 
                 <div class="work-entry">
@@ -130,40 +167,40 @@
                         <div class="work-period">Декабрь 2021&nbsp;— Февраль 2023</div>
                         <div class="company-name">Airba Marketplace</div>
                     </div>
-                    <h3 class="position">Продуктовый редактор</h3>
+                    <h4 class="position">Продуктовый редактор</h4>
                 </div>
-                
+
                 <div class="work-entry">
                     <div class="work-header">
                         <div class="work-period">Июнь 2019&nbsp;— Февраль 2021</div>
                         <div class="company-name">ForteBank</div>
                     </div>
-                    <h3 class="position">Редактор коммуникаций и менеджер спецпроектов</h3>
+                    <h4 class="position">Редактор коммуникаций и менеджер спецпроектов</h4>
                 </div>
-                
+
                 <div class="work-entry">
                     <div class="work-header">
-                        <div class="work-period">Июль 2017 — Май 2019</div>
+                        <div class="work-period">Июль&nbsp;2017&nbsp;— Май&nbsp;2019</div>
                         <div class="company-name">Freedom Travel (Aviata)</div>
                     </div>
-                    <h3 class="position">Продуктовый редактор</h3>
+                    <h4 class="position">Продуктовый редактор</h4>
                 </div>
-                
+
                 <div class="work-entry">
                     <div class="work-header">
-                        <div class="work-period">Июль 2014 — Июль 2017</div>
+                        <div class="work-period">Июль&nbsp;2014&nbsp;— Июль&nbsp;2017</div>
                         <div class="company-name">Рекламное агентство «Комбинат»</div>
                     </div>
-                    <h3 class="position">Старший копирайтер</h3>
+                    <h4 class="position">Старший копирайтер</h4>
                 </div>
-                
-                <h4 class="work-section-title">Проектно</h4>
+
+                <h3 class="work-section-title">Проектно</h3>
                 <div class="work-entry">
                     <div class="work-header">
                         <div class="work-period">Март 2021&nbsp;— Март 2026</div>
                         <div class="company-name">ForteBank</div>
                     </div>
-                    <h3 class="position">Копирайтер</h3>
+                    <h4 class="position">Копирайтер</h4>
                 </div>
 
                 <div class="work-entry">
@@ -171,7 +208,7 @@
                         <div class="work-period">Июль 2017&nbsp;— Сейчас</div>
                         <div class="company-name">Freedom Travel (Aviata)</div>
                     </div>
-                    <h3 class="position">Автор рассылки</h3>
+                    <h4 class="position">Автор рассылки</h4>
                 </div>
 
                 <div class="work-entry">
@@ -179,7 +216,7 @@
                         <div class="work-period">Октябрь 2024&nbsp;— Июль 2025</div>
                         <div class="company-name">OLX Kazakhstan</div>
                     </div>
-                    <h3 class="position">CRM-копирайтер</h3>
+                    <h4 class="position">CRM-копирайтер</h4>
                 </div>
 
                 <div class="work-entry">
@@ -187,7 +224,7 @@
                         <div class="work-period">Сентябрь 2023&nbsp;— Ноябрь 2023</div>
                         <div class="company-name">Tele2 Kazakhstan</div>
                     </div>
-                    <h3 class="position">Копирайтер</h3>
+                    <h4 class="position">Копирайтер</h4>
                 </div>
 
                 <div class="work-entry">
@@ -195,11 +232,11 @@
                         <div class="work-period">Июнь 2023&nbsp;— Октябрь 2023</div>
                         <div class="company-name">Freedom Travel (Aviata)</div>
                     </div>
-                    <h3 class="position">Продуктовый редактор</h3>
+                    <h4 class="position">Продуктовый редактор</h4>
                 </div>
             </div>
         </section>
-        
+
         <section id="education" class="typed-section">
             <h2>Образование</h2>
             <div class="content">
@@ -219,34 +256,34 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="contact" class="typed-section">
             <h2>Давайте поговорим</h2>
             <div class="content">
                 <div class="social">
-                    <a href="https://t.me/agabekov" target="_blank">Telegram</a>
-                    <a href="mailto:agabekovd@gmail.com" target="_blank">agabekovd@gmail.com</a>
+                    <a href="https://t.me/agabekov" target="_blank" rel="noopener">Telegram</a>
+                    <a href="mailto:agabekovd@gmail.com">agabekovd@gmail.com</a>
                 </div>
             </div>
         </section>
-    </div>
-    
+    </main>
+
     <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="https://go.daniyar.link/li-work" target="_blank">LinkedIn</a>
-                <a href="https://go.daniyar.link/instagram-work" target="_blank">Instagram</a>
-                <a href="https://go.daniyar.link/x-work" target="_blank">X</a>
-                <a href="https://go.daniyar.link/blog-work" target="_blank">Blog</a>
-                <a href="https://go.daniyar.link/oneway-work" target="_blank">Oneway</a>
-                <a href="https://go.daniyar.link/verdict-work" target="_blank">Verdict</a>
+                <a href="https://go.daniyar.link/li-work" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://go.daniyar.link/instagram-work" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://go.daniyar.link/x-work" target="_blank" rel="noopener">X</a>
+                <a href="https://go.daniyar.link/blog-work" target="_blank" rel="noopener">Blog</a>
+                <a href="https://go.daniyar.link/oneway-work" target="_blank" rel="noopener">Oneway</a>
+                <a href="https://go.daniyar.link/verdict-work" target="_blank" rel="noopener">Verdict</a>
             </div>
             <p id="footer-copyright">&copy; 2026 Данияр Агабеков</p>
         </div>
     </footer>
-    
-    <script src="script.js"></script>
+
+    <script src="script.js" defer></script>
     <!-- 100% privacy-first analytics -->
     <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
-</html> 
+</html>
