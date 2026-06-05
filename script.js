@@ -68,45 +68,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const sections = document.querySelectorAll('.typed-section');
 
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+    function revealSection(section) {
+        section.classList.add('visible');
 
-                const content = entry.target.querySelector('.content');
-                if (content && !content.classList.contains('typed')) {
-                    content.style.opacity = '1';
-                    const textElements = content.querySelectorAll('p, h3, h4, li, blockquote p, cite, .client-item, .education-item, .work-period, .company-name, .social a');
-                    textElements.forEach(element => {
-                        element.style.opacity = '1';
-                    });
-                    content.classList.add('typed');
-                }
-            }
-        });
-    }, { threshold: 0.2 });
-
-    sections.forEach(section => {
-        sectionObserver.observe(section);
-    });
-
-    const navLinks = document.querySelectorAll('nav a');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (!targetElement) {
-                return;
-            }
-
-            window.scrollTo({
-                top: targetElement.offsetTop - 40,
-                behavior: 'smooth'
+        const content = section.querySelector('.content');
+        if (content && !content.classList.contains('typed')) {
+            content.style.opacity = '1';
+            const textElements = content.querySelectorAll('p, h3, h4, li, blockquote p, cite, .client-item, .education-item, .work-period, .company-name, .social a');
+            textElements.forEach(element => {
+                element.style.opacity = '1';
             });
+            content.classList.add('typed');
+        }
+    }
+
+    if ('IntersectionObserver' in window) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    revealSection(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
         });
-    });
+    } else {
+        // Старый браузер без IntersectionObserver — показываем всё сразу
+        sections.forEach(revealSection);
+    }
 });

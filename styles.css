@@ -47,16 +47,6 @@ body.dark-theme {
     color: var(--color-link-hover-dark);
 }
 
-.dark-theme blockquote {
-    border-left: 2px solid var(--color-text-dark);
-}
-
-.dark-theme .client-list li::before,
-.dark-theme .client-item::before {
-    color: var(--color-text-dark);
-}
-
-
 /* Header controls */
 .header-controls {
     position: absolute;
@@ -104,8 +94,11 @@ h1, h2, h3 {
 h1 {
     font-size: 2rem;
     margin-bottom: 0.25rem;
-    opacity: 0;
     transition: opacity 0.8s ease;
+}
+
+.js h1 {
+    opacity: 0;
 }
 
 h2 {
@@ -129,8 +122,11 @@ p {
 #title {
     font-style: italic;
     margin-bottom: 0;
-    opacity: 0;
     transition: opacity 0.8s ease;
+}
+
+.js #title {
+    opacity: 0;
 }
 
 a {
@@ -144,7 +140,7 @@ a:hover {
     color: var(--color-link-hover);
 }
 
-/* Header & Navigation */
+/* Header */
 header {
     margin-bottom: 3rem;
 }
@@ -176,27 +172,15 @@ header {
     flex-grow: 1;
 }
 
-nav {
-    margin-bottom: 6rem;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-}
-
-nav a {
-    font-weight: 700;
-}
-
 /* Sections */
 section {
     margin-bottom: 3rem;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.js section {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 section.visible {
@@ -205,9 +189,12 @@ section.visible {
 }
 
 .content {
-    opacity: 0;
     margin-top: 0.5rem;
     transition: opacity 0.3s ease;
+}
+
+.js .content {
+    opacity: 0;
 }
 
 
@@ -276,22 +263,6 @@ section.visible {
     font-size: 1.1rem;
 }
 
-/* Client list */
-.client-list {
-    list-style: none;
-    margin-left: 1rem;
-}
-
-.client-list li {
-    margin-bottom: 0.5rem;
-    position: relative;
-}
-
-.client-list li::before {
-    content: "_";
-    padding-right: 0.5rem;
-}
-
 /* Client Grid */
 .client-grid {
     display: flex;
@@ -324,68 +295,36 @@ section.visible {
     }
 }
 
-/* Removing all testimonial related styles */
-.testimonial-container,
-.testimonial-item,
-.testimonial-item.active,
-.testimonial-content,
-.testimonial-controls,
-.testimonial-button,
-#testimonial-debug {
-    display: none;
-}
-
-section#testimonials {
-    display: none;
-}
-
-/* Animations */
-
 /* Media queries */
 @media (max-width: 768px) {
     .container {
         padding: 2rem 1rem;
         padding-top: 4rem;
     }
-    
-    nav ul {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-    
+
     h1 {
         font-size: 1.75rem;
     }
-    
+
     h2 {
         font-size: 1.5rem;
     }
-    
-    .testimonial-item {
-        width: 90%;
-    }
-    
-    .testimonial-item.left,
-    .testimonial-item.right {
-        display: none;
-    }
-    
+
     .work-header {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .company-name {
         text-align: left;
         font-size: 0.9rem;
         margin-top: 0.2rem;
         width: 100%;
     }
-    
+
     .work-period {
         font-size: 0.9rem;
     }
-
 }
 
 /* Elegant highlight */
@@ -400,35 +339,6 @@ section#testimonials {
     box-shadow: inset 0 -0.5em 0 var(--highlight-color-dark);
 }
 
-/* Rest of your CSS below */
-section#testimonials .content {
-    opacity: 1 !important;
-}
-
-/* Testimonial Controls */
-.testimonial-controls {
-    margin-top: 30px;
-    text-align: center;
-}
-
-.testimonial-button {
-    background: transparent;
-    border: 1px solid currentColor;
-    padding: 8px 15px;
-    font-family: var(--font-main);
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
-.testimonial-button:hover {
-    opacity: 0.7;
-}
-
-.dark-theme .testimonial-button {
-    color: var(--color-text-dark);
-}
-
 /* Contact section */
 .social {
     margin-top: 0.75rem;
@@ -436,46 +346,6 @@ section#testimonials .content {
 
 .social a {
     margin-right: 1rem;
-}
-
-/* About Section Image */
-.about-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.about-image-container {
-    align-self: center;
-    margin-bottom: 1rem;
-}
-
-.about-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-}
-
-.dark-theme .about-image {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-@media (min-width: 768px) {
-    .about-layout {
-        flex-direction: row;
-    }
-    
-    .about-image-container {
-        flex: 0 0 40%;
-        margin-right: 2rem;
-        margin-bottom: 0;
-    }
-    
-    .about-text {
-        flex: 1;
-    }
 }
 
 .education-grid {
