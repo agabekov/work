@@ -403,6 +403,12 @@ section.visible {
     margin-bottom: var(--space-1);
 }
 
+/* Grouped roles within one company (promotion): no divider between roles,
+   just a gap smaller than the between-companies spacing. */
+.work-role + .work-role {
+    margin-top: var(--space-3);
+}
+
 /* ============================================================
    Clients
    ============================================================ */
