@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Данияр Агабеков">
+  <style>
+    .bg { fill: #F0F0E8; }
+    .fg { fill: #000000; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #1A1A1A; }
+      .fg { fill: #E5E5DF; }
+    }
+  </style>
+  <rect class="bg" width="100" height="100" rx="18"/>
+  <g class="fg">
+    <rect x="27" y="16" width="46" height="13"/>
+    <rect x="27" y="16" width="13" height="53"/>
+    <rect x="60" y="16" width="13" height="53"/>
+    <rect x="14" y="69" width="72" height="11"/>
+    <rect x="14" y="80" width="12" height="8"/>
+    <rect x="74" y="80" width="12" height="8"/>
+  </g>
+</svg>
