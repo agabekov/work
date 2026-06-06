@@ -119,11 +119,11 @@ html {
     /* Usuki — light theme (semantic tokens) */
     --color-text: #000;
     --color-background: #F0F0E8;
-    --color-link: #000;
-    --color-link-hover: #666;
+    --color-link: #5B3FC0;
+    --color-link-hover: #4F35A8;
     --color-border: rgba(0, 0, 0, 0.1);
     --color-muted: rgba(0, 0, 0, 0.55);
-    --highlight-color: rgba(167, 139, 250, 0.2);
+    --highlight-color: rgba(167, 139, 250, 0.4);
 
     /* Spacing scale */
     --space-1: 0.5rem;
@@ -139,8 +139,8 @@ html {
     /* Sumi — dark theme (same token names) */
     --color-text: #E5E5DF;
     --color-background: #1A1A1A;
-    --color-link: #A8D8B9;
-    --color-link-hover: #83AD94;
+    --color-link: #A78BFA;
+    --color-link-hover: #9C82E8;
     --color-border: rgba(229, 229, 223, 0.1);
     --color-muted: rgba(229, 229, 223, 0.6);
     --highlight-color: rgba(167, 139, 250, 0.4);
