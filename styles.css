@@ -573,3 +573,18 @@ footer .container {
         transform: none !important;
     }
 }
+
+/* ============================================================
+   No-JS visibility failsafe
+   If script.js never runs (blocked, parse error, throws before reveal),
+   the inline <head> script adds .force-reveal after a timeout so the page
+   is never left blank. In the normal case script.js clears that timeout,
+   so below-the-fold sections keep their IntersectionObserver scroll-reveal.
+   ============================================================ */
+.force-reveal h1,
+.force-reveal #title,
+.force-reveal .content,
+.force-reveal section {
+    opacity: 1 !important;
+    transform: none !important;
+}

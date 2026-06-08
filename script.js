@@ -30,7 +30,6 @@
         }
         const isDark = root.classList.contains('dark-theme');
         themeToggle.textContent = isDark ? themeLabels.dark : themeLabels.light;
-        themeToggle.setAttribute('aria-pressed', String(isDark));
     }
 
     function applyTheme(isDark) {
@@ -111,4 +110,8 @@
             sections.forEach(revealSection);
         }
     }
+
+    // Reveal mechanism is now established; cancel the no-JS visibility failsafe
+    // armed by the inline <head> script so it doesn't redundantly force-reveal.
+    clearTimeout(window.__revealFailsafe);
 })();
