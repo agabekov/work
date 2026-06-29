@@ -78,7 +78,10 @@
 </head>
 <body>
     <div class="header-controls">
-        <button class="theme-toggle" type="button">Ночью</button>
+        <button class="theme-toggle" type="button" aria-label="Переключить на тёмную тему" aria-pressed="false">
+            <span class="theme-icon theme-icon-night" aria-hidden="true">☾</span>
+            <span class="theme-icon theme-icon-day" aria-hidden="true">☀</span>
+        </button>
     </div>
     <main class="container">
         <header>
@@ -88,7 +91,7 @@
                 </div>
                 <hgroup class="header-text">
                     <h1 id="name">Данияр Агабеков</h1>
-                    <p id="title">Хороший текст начинается с разговора. Напишите:&nbsp;agabekovd@gmail.com</p>
+                    <p id="title">Хороший текст начинается с разговора. Напишите:&nbsp;<span class="header-email">agabekovd@gmail.com</span></p>
                 </hgroup>
             </div>
         </header>

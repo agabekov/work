@@ -3,7 +3,10 @@
 // Runs with `defer`, so the DOM is parsed by the time this executes.
 (function () {
     const root = document.documentElement;
-    const themeLabels = { light: 'Ночью', dark: 'Днём' };
+    const themeLabels = {
+        light: 'Переключить на тёмную тему',
+        dark: 'Переключить на светлую тему',
+    };
     const themeToggle = document.querySelector('.theme-toggle');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -29,7 +32,9 @@
             return;
         }
         const isDark = root.classList.contains('dark-theme');
-        themeToggle.textContent = isDark ? themeLabels.dark : themeLabels.light;
+        themeToggle.setAttribute('aria-pressed', String(isDark));
+        themeToggle.setAttribute('aria-label', isDark ? themeLabels.dark : themeLabels.light);
+        themeToggle.title = isDark ? themeLabels.dark : themeLabels.light;
     }
 
     function applyTheme(isDark) {
@@ -64,35 +69,17 @@
         });
     });
 
-    // ----- Reveal: header + sections -----
-    const name = document.getElementById('name');
-    const title = document.getElementById('title');
+    // ----- Reveal: sections -----
     const sections = document.querySelectorAll('.typed-section');
-
-    function revealHeader() {
-        if (name) {
-            name.style.opacity = '1';
-        }
-        if (title) {
-            title.style.opacity = '1';
-        }
-    }
 
     function revealSection(section) {
         section.classList.add('visible');
-        const content = section.querySelector('.content');
-        if (content) {
-            content.style.opacity = '1';
-        }
     }
 
     if (prefersReducedMotion.matches) {
         // No motion: show everything immediately.
-        revealHeader();
         sections.forEach(revealSection);
     } else {
-        requestAnimationFrame(revealHeader);
-
         if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver(function (entries, obs) {
                 entries.forEach(function (entry) {
