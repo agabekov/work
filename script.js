@@ -9,7 +9,6 @@
     };
     const themeToggle = document.querySelector('.theme-toggle');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     function readStoredTheme() {
         try {
@@ -28,6 +27,10 @@
     }
 
     function syncToggle() {
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        if (themeColor) {
+            themeColor.content = getComputedStyle(root).getPropertyValue('--color-background').trim();
+        }
         if (!themeToggle) {
             return;
         }
@@ -61,44 +64,4 @@
         }
     });
 
-    // Drop the first-paint transition guard once the initial styles have settled,
-    // so theme switches still animate but the initial load doesn't.
-    requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-            root.classList.remove('no-transitions');
-        });
-    });
-
-    // ----- Reveal: sections -----
-    const sections = document.querySelectorAll('.typed-section');
-
-    function revealSection(section) {
-        section.classList.add('visible');
-    }
-
-    if (prefersReducedMotion.matches) {
-        // No motion: show everything immediately.
-        sections.forEach(revealSection);
-    } else {
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver(function (entries, obs) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        revealSection(entry.target);
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            sections.forEach(function (section) {
-                observer.observe(section);
-            });
-        } else {
-            sections.forEach(revealSection);
-        }
-    }
-
-    // Reveal mechanism is now established; cancel the no-JS visibility failsafe
-    // armed by the inline <head> script so it doesn't redundantly force-reveal.
-    clearTimeout(window.__revealFailsafe);
 })();

@@ -8,26 +8,18 @@
         var d = document.documentElement;
         d.classList.remove('no-js');
         d.classList.add('js');
-        d.classList.add('no-transitions');
         try {
             var t = localStorage.getItem('theme');
             if (t === 'dark' || (t === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 d.classList.add('dark-theme');
             }
         } catch (e) {}
-        // Failsafe: if script.js never reveals content (blocked, parse error, or
-        // throws before reveal), force everything visible after a beat so the page
-        // is never left permanently blank. script.js clears this once reveal runs.
-        window.__revealFailsafe = setTimeout(function () {
-            d.classList.add('force-reveal');
-        }, 2500);
     })();
     </script>
     <title>Работа Данияра Агабекова</title>
     <meta name="description" content="Ищете копирайтера? Это я.">
     <link rel="canonical" href="https://work.daniyar.link/">
-    <meta name="theme-color" content="#F0F0E8" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#F0EDF5">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -52,8 +44,8 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-    <link rel="preload" href="/public/fonts/jetbrains-mono-latin-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/public/fonts/jetbrains-mono-cyrillic-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/public/fonts/golos-text-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/public/fonts/caveat-variable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
 
     <script type="application/ld+json">
@@ -77,97 +69,65 @@
     </script>
 </head>
 <body>
-    <div class="header-controls">
-        <button class="theme-toggle" type="button" aria-label="Переключить на тёмную тему" aria-pressed="false">
-            <span class="theme-icon theme-icon-night" aria-hidden="true">☾</span>
-            <span class="theme-icon theme-icon-day" aria-hidden="true">☀</span>
-        </button>
-    </div>
-    <main class="container">
-        <header>
-            <div class="header-content">
-                <div class="profile-image-container">
-                    <img src="daniyar-avatar.jpg" alt="Портрет: Данияр Агабеков" class="profile-image" width="100" height="100" decoding="async" fetchpriority="high">
-                </div>
-                <hgroup class="header-text">
-                    <h1 id="name">Данияр Агабеков</h1>
-                    <p id="title">Хороший текст начинается с разговора. Напишите:&nbsp;<span class="header-email">agabekovd@gmail.com</span></p>
-                </hgroup>
-            </div>
-        </header>
+    <a class="skip-link" href="#main">К содержанию</a>
+    <header class="site-header page-width">
+        <div class="masthead-author"><h1 id="name"><a href="#main">Данияр Агабеков</a></h1><p>Работа и немного обо мне</p></div>
+        <div class="header-actions">
+            <a class="header-contact" href="mailto:agabekovd@gmail.com">agabekovd@gmail.com</a>
+            <button class="theme-toggle" type="button" aria-label="Переключить на тёмную тему" aria-pressed="false">
+                <svg class="theme-icon-night" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z"/></svg>
+                <svg class="theme-icon-day" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+            </button>
+        </div>
+    </header>
 
-        <section id="about" class="typed-section">
-            <h2>Обо мне</h2>
-            <div class="content">
-                <p>Я пишу тексты. Пишу уже 11&nbsp;лет. И делаю это довольно хорошо.</p>
-                <p>Вот что у меня получается лучше всего.</p>
-                <p>Писать с&nbsp;заботой&nbsp;— чтобы люди чувствовали любовь и&nbsp;уважение к&nbsp;себе, чтобы они не&nbsp;думали, что они глупые, когда пользуются вашими продуктами, чтобы чувствовали, что о&nbsp;них переживают, и&nbsp;что им&nbsp;хотят помочь.</p>
-                <p>Могу помочь, когда наступают сложные моменты&nbsp;— когда нужно сообщить клиентам непростую новость или объяснить изменения, которые могут вызвать беспокойство. <span class="highlight">Я&nbsp;тщательно подбираю каждое слово, чтобы сохранить доверие, которое вы&nbsp;строили годами.</span> Я&nbsp;помогаю вашим клиентам понять, что даже в&nbsp;непростых ситуациях вы&nbsp;остаётесь на&nbsp;их&nbsp;стороне, цените их&nbsp;и&nbsp;стремитесь сделать всё возможное, чтобы ваши отношения продолжались и&nbsp;крепли, несмотря на&nbsp;временные трудности.</p>
-                <p>И&nbsp;формулировать смыслы&nbsp;— превращать сложные идеи в&nbsp;ясные сообщения, которые находят отклик. Я&nbsp;помогаю компаниям выражать их&nbsp;ценности так, чтобы каждый понял суть без лишних слов. Создаю тексты, где за&nbsp;каждым предложением стоит цель и&nbsp;намерение, где нет места пустым фразам. <span class="highlight">Когда люди читают мои тексты, они видят картину целиком, понимают «почему» за&nbsp;каждым «что» и&nbsp;чувствуют связь с&nbsp;брендом на&nbsp;более глубоком уровне.</span></p>
-            </div>
-        </section>
-
-        <section id="services" class="typed-section">
-            <h2>Чем занимаюсь</h2>
-            <div class="content">
-                <div class="service">
-                    <h3>Маркетинговый копирайтинг</h3>
-                    <p>Объясняю, чем вы&nbsp;полезны клиентам и&nbsp;почему вас стоит выбрать. Не&nbsp;давлю на&nbsp;людей и&nbsp;не&nbsp;использую маркетинговые штампы&nbsp;— просто даю информацию, которая помогает принять решение в&nbsp;вашу пользу.</p>
-                </div>
-
-                <div class="service">
-                    <h3>UX-копирайтинг</h3>
-                    <p>Пишу для приложений и&nbsp;сайтов так, чтобы не&nbsp;запутать, а&nbsp;помочь. Сделать взаимодействие с&nbsp;вашим продуктом приятным и&nbsp;понятным. Когда пользователь увидит текст, он&nbsp;сразу понимает, что происходит и&nbsp;что делать дальше.</p>
-                </div>
-
-                <div class="service">
-                    <h3>Гострайтинг</h3>
-                    <p>Изучаю особенности вашей речи, а&nbsp;затем создаю тексты, которые звучат так, будто вы&nbsp;написали их&nbsp;сами. Это всё останется анонимным, никто не&nbsp;узнает о&nbsp;моей работе.</p>
-                    <p>Руковожу своей студией гострайтинга. Работаем с корпорациями, стартапами и экспертами. <a href="https://noname.daniyar.link" target="_blank" rel="noopener">Подробнее</a></p>
+    <main id="main" class="page-width">
+        <section class="hero" aria-labelledby="opening-title">
+            <aside class="author-margin" aria-label="Об авторе">
+                <figure class="author-photo">
+                    <img src="daniyar.jpg" alt="Данияр Агабеков" width="800" height="800" decoding="async" fetchpriority="high">
+                    <figcaption>Да, это я.</figcaption>
+                </figure>
+                <p class="author-role">Редактор, копирайтер. <br>Теперь ещё и руководитель.</p>
+                <nav class="margin-navigation" aria-label="Содержание">
+                    <a href="#about">Что для меня важно</a>
+                    <a href="#work-experience">Где я работал</a>
+                    <a href="#services">С чем помогу</a>
+                </nav>
+            </aside>
+            <div class="hero-copy">
+                <h2 class="opening-line" id="opening-title">
+                    <span>Я пишу</span>
+                    <span class="draft-line"><del aria-hidden="true">тексты.<svg class="proof-stroke" viewBox="0 0 500 90" preserveAspectRatio="none" aria-hidden="true"><path d="M8 68 Q230 8 486 24 M24 82 Q228 30 468 39"/></svg></del><ins>для людей.</ins></span>
+                </h2>
+                <div class="opening-message">
+                    <p>Чтобы сложное становилось понятным. <br>А за словами чувствовался человек.</p>
+                    <p class="conversation-line">Хороший текст начинается с разговора. <br><a href="https://t.me/agabekov" target="_blank" rel="noopener">Можно начать наш.</a></p>
                 </div>
             </div>
         </section>
 
-        <section id="clients" class="typed-section">
-            <h2>Клиенты</h2>
-            <div class="content">
-                <p>С&nbsp;одними работали долго и&nbsp;сделали много, а&nbsp;с&nbsp;кем-то&nbsp;— совсем чуть-чуть. Но&nbsp;я&nbsp;всех помню и&nbsp;люблю.</p>
-                <div class="client-grid">
-                    <div class="client-item">Freedom Travel (Aviata)</div>
-                    <div class="client-item">ForteBank</div>
-                    <div class="client-item">AIRBA Marketplace</div>
-                    <div class="client-item">Tele2 Kazakhstan</div>
-                    <div class="client-item">OLX Kazakhstan</div>
-                    <div class="client-item">binY</div>
-                    <div class="client-item">FlowSell</div>
-                    <div class="client-item">BI Group</div>
-                    <div class="client-item">Technodom Kazakhstan</div>
-                    <div class="client-item">Freedom Bank Kazakhstan</div>
-                    <div class="client-item">Банк ЦентрКредит</div>
-                    <div class="client-item">Korean House Restaurants</div>
-                    <div class="client-item">ECCO Kazakhstan</div>
-                    <div class="client-item">Фонд Первого Президента РК</div>
-                    <div class="client-item">НСК</div>
-                    <div class="client-item">Men Style</div>
-                    <div class="client-item">Ramstore</div>
-                    <div class="client-item">Jack Daniel's</div>
-                    <div class="client-item">Finlandia</div>
-                    <div class="client-item">Служба Центральных Коммуникаций РК</div>
-                    <div class="client-item">BTS Digital</div>
+        <section id="about" class="section-layout about-section" aria-labelledby="about-title">
+            <div class="section-side"><h2 class="section-label" id="about-title">Что для меня важно</h2><p class="margin-note">По ту сторону текста <br>всегда кто-то есть.</p></div>
+            <div class="section-body">
+                <p class="about-lead">Не просто сказать. <br>Быть услышанным.</p>
+                <p class="about-intro">Я пишу тексты. Пишу уже 11 лет. И делаю это довольно хорошо. Но главное для меня — человек по ту сторону экрана.</p>
+                <div class="principles">
+                    <article><h3>С заботой</h3><p>Чтобы люди чувствовали уважение к себе, не терялись в вашем продукте и знали: им хотят помочь.</p></article>
+                    <article><h3>С доверием</h3><p>Подбираю слова для непростых новостей. Помогаю объяснять изменения и сохранять отношения, которые вы строили годами.</p></article>
+                    <article><h3>Со смыслом</h3><p>Превращаю сложные идеи в ясные сообщения. За каждым предложением — цель. Чтобы читатель понимал не только «что», но и «почему».</p></article>
                 </div>
             </div>
         </section>
 
-        <section id="work-experience" class="typed-section">
-            <h2>Опыт</h2>
-            <div class="content">
-                <h3 class="work-section-title">В штате</h3>
-
-                <div class="work-entry">
+        <section id="work-experience" class="section-layout" aria-labelledby="experience-title">
+            <div class="section-side"><h2 class="section-label" id="experience-title">Где я работал</h2><p class="margin-note career-note">Началось с текстов. <br>Продолжилось людьми.</p></div>
+            <div class="section-body">
+                <h3 class="work-section-title">Сейчас в Kaspi.kz</h3>
+                <div class="work-entry current-job">
                     <div class="work-role">
                         <div class="work-header">
                             <div class="work-period">Июнь 2026&nbsp;— Сейчас</div>
-                            <div class="company-name">Kaspi.kz</div>
                         </div>
                         <h4 class="position">Global Director of Guide Services</h4>
                     </div>
@@ -179,7 +139,8 @@
                     </div>
                 </div>
 
-                <div class="work-entry">
+
+                <details class="career-details"><summary><h3>Ранее в штате</h3></summary><div class="details-content"><div class="work-entry">
                     <div class="work-header">
                         <div class="work-period">Декабрь 2021&nbsp;— Февраль 2023</div>
                         <div class="company-name">Airba Marketplace</div>
@@ -223,9 +184,8 @@
                         </div>
                         <h4 class="position">SMM-менеджер</h4>
                     </div>
-                </div>
-
-                <h3 class="work-section-title">Проектно</h3>
+                </div></div></details>
+                <details class="career-details"><summary><h3>Проектная работа</h3></summary><div class="details-content">
                 <div class="work-entry">
                     <div class="work-header">
                         <div class="work-period">Март 2021&nbsp;— Март 2026</div>
@@ -236,7 +196,7 @@
 
                 <div class="work-entry">
                     <div class="work-header">
-                        <div class="work-period">Июль 2017&nbsp;— Сейчас</div>
+                        <div class="work-period">Июль 2017&nbsp;— Март 2026</div>
                         <div class="company-name">Freedom Travel (Aviata)</div>
                     </div>
                     <h4 class="position">Автор рассылки</h4>
@@ -265,55 +225,72 @@
                     </div>
                     <h4 class="position">Продуктовый редактор</h4>
                 </div>
+</div></details>
             </div>
         </section>
 
-        <section id="education" class="typed-section">
-            <h2>Образование</h2>
-            <div class="content">
-                <div class="education-grid">
-                    <div class="education-item">2025. Курс: Продакт-менеджер | Product Masters</div>
-                    <div class="education-item">2024. Курс: Introduction to UX-writing | Udemy</div>
-                    <div class="education-item">2022. Курс UX-копирайтинг | Яндекс.Практикум</div>
-                    <div class="education-item">2020. Воркшоп «Как разучиться придумывать рекламу» | mads</div>
-                    <div class="education-item">2020. Курс: Digital-маркетолог | GeniusMarketing</div>
-                    <div class="education-item">2019. Курс: SEO-специалист | Нетология</div>
-                    <div class="education-item">2018. Воркшоп: Контент-маркетинг | Максим Ильяхов</div>
-                    <div class="education-item">2017. Школа редакторов | Дизайн-бюро Артёма Горбунова</div>
-                    <div class="education-item">2017. Курс: Основы HTML и CSS | Нетология</div>
-                    <div class="education-item">2017. Курс: Веб-дизайн | Open IT</div>
-                    <div class="education-item">2017. Курс: Работа с клиентом | Максим Ильяхов</div>
-                    <div class="education-item">2016. Курс: Главред | Максим Ильяхов</div>
-                </div>
+        <section id="services" class="section-layout" aria-labelledby="services-title">
+            <h2 class="section-label" id="services-title">Чем могу помочь</h2>
+            <div class="section-body services-list">
+                <article class="service"><div class="service-heading"><h3>Маркетинговый <br>копирайтинг</h3></div><p>Объясняю, чем вы полезны клиентам и почему вас стоит выбрать. Без давления и маркетинговых штампов — с информацией, которая помогает принять решение.</p></article>
+                <article class="service"><div class="service-heading"><h3>UX-копирайтинг</h3></div><p>Пишу для приложений и сайтов так, чтобы помочь. Когда человек видит текст, он понимает, что происходит и что делать дальше.</p></article>
+                <article class="service"><div class="service-heading"><h3>Гострайтинг</h3></div><div><p>Изучаю вашу речь и создаю тексты, которые звучат так, будто вы написали их сами. Всё анонимно — никто не узнает о моей работе.</p></div></article>
             </div>
         </section>
 
-        <section id="contact" class="typed-section">
-            <h2>Давайте поговорим</h2>
-            <div class="content">
-                <div class="social">
-                    <a href="https://t.me/agabekov" target="_blank" rel="noopener">Telegram</a>
-                    <a href="mailto:agabekovd@gmail.com">agabekovd@gmail.com</a>
-                </div>
-            </div>
+        <section id="clients" class="clients-section" aria-labelledby="clients-title">
+            <div class="clients-heading"><h2 id="clients-title">С одними работали долго и сделали много, с кем-то — совсем чуть-чуть.</h2><p>Но я всех помню и люблю.</p></div>
+            <ul class="client-grid"><li>Freedom Travel (Aviata)</li>
+<li>ForteBank</li>
+<li>AIRBA Marketplace</li>
+<li>Tele2 Kazakhstan</li>
+<li>OLX Kazakhstan</li>
+<li>binY</li>
+<li>FlowSell</li>
+<li>BI Group</li>
+<li>Technodom Kazakhstan</li>
+<li>Freedom Bank Kazakhstan</li>
+<li>Банк ЦентрКредит</li>
+<li>Korean House Restaurants</li>
+<li>ECCO Kazakhstan</li>
+<li>Фонд Первого Президента РК</li>
+<li>НСК</li>
+<li>Men Style</li>
+<li>Ramstore</li>
+<li>Jack Daniel's</li>
+<li>Finlandia</li>
+<li>Служба Центральных Коммуникаций РК</li>
+<li>BTS Digital</li></ul>
         </section>
+
+        <section id="education" class="section-layout education-section" aria-labelledby="education-title">
+            <h2 class="section-label" id="education-title">Продолжаю учиться</h2>
+            <div class="section-body"><p class="education-lead">Редактура, продукты, дизайн. <br>Хорошему тексту полезен широкий кругозор.</p><div class="education-list"><h3 class="education-heading">Курсы и школы</h3><ul class="education-grid"><li>2026. Семинар: Поощрение, критика и обратная связь — инструменты профессионального руководителя | Александр Фридман</li>
+<li>2026. Семинар: Как наказывать подчиненных. За что, для чего и чем | Александр Фридман</li>
+<li>2025. Курс: Продакт-менеджер | Product Masters</li>
+<li>2024. Курс: Introduction to UX-writing | Udemy</li>
+<li>2022. Курс UX-копирайтинг | Яндекс.Практикум</li>
+<li>2020. Воркшоп «Как разучиться придумывать рекламу» | mads</li>
+<li>2020. Курс: Digital-маркетолог | GeniusMarketing</li>
+<li>2019. Курс: SEO-специалист | Нетология</li>
+<li>2018. Воркшоп: Контент-маркетинг | Максим Ильяхов</li>
+<li>2017. Школа редакторов | Дизайн-бюро Артёма Горбунова</li>
+<li>2017. Курс: Основы HTML и CSS | Нетология</li>
+<li>2017. Курс: Веб-дизайн | Open IT</li>
+<li>2017. Курс: Работа с клиентом | Максим Ильяхов</li>
+<li>2016. Курс: Главред | Максим Ильяхов</li></ul></div></div>
+        </section>
+
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-links">
+    <footer class="page-width"><p>© 2026 Данияр Агабеков</p><div class="footer-links">
                 <a href="https://go.daniyar.link/li-work" target="_blank" rel="noopener">LinkedIn</a>
                 <a href="https://go.daniyar.link/instagram-work" target="_blank" rel="noopener">Instagram</a>
                 <a href="https://go.daniyar.link/blog-work" target="_blank" rel="noopener">Blog</a>
                 <a href="https://go.daniyar.link/oneway-work" target="_blank" rel="noopener">Oneway</a>
                 <a href="https://go.daniyar.link/verdict-work" target="_blank" rel="noopener">Verdict</a>
-            </div>
-            <p id="footer-copyright">&copy; 2026 Данияр Агабеков</p>
-        </div>
-    </footer>
-
+            </div><a class="back-top" href="#main" aria-label="Вернуться в начало">↑</a></footer>
     <script src="script.js" defer></script>
-    <!-- 100% privacy-first analytics -->
     <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
 </html>
